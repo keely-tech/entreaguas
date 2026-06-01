@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENTREÁGUAS MILAGRES — Private Luxury Collection</title>
+<meta name="description" content="Pre-launch luxury coastal resort in Alagoas, Brazil. 89 private homes, Blue Flag beach, 6 freshwater lagoons. Exclusive European mandate — Private Luxury Collection.">
+<meta property="og:title" content="ENTREÁGUAS MILAGRES — Luxury Coastal Resort, Alagoas Brazil">
+<meta property="og:description" content="Pre-launch, exclusive European mandate. 89 homes, Blue Flag beach, 6 freshwater lagoons. Entry from €511,000.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0C0C0A;--off-white:#F5F3EE;--gold:#B09A5E;--gold-light:#C8B07A;
+  --gold-dim:rgba(176,154,94,.15);--gold-glow:rgba(176,154,94,.07);
+  --charcoal:#1E1D1A;--mid:#3A3833;--muted:#7A786F;
+  --border:rgba(176,154,94,.18);--border-light:rgba(176,154,94,.09);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--off-white);color:var(--charcoal);
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s,padding .4s,border-color .4s}
+nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48px;
+  border-bottom:1px solid rgba(176,154,94,.1)}
+.nav-logo{font-family:var(--serif);font-size:.95rem;font-weight:400;color:var(--off-white);
+  letter-spacing:.08em;text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
+.nav-logo span{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);font-family:var(--sans);font-weight:300}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);
+  color:var(--black);font-family:var(--sans);font-size:.72rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;padding:15px 32px;border:none;
+  cursor:pointer;transition:background .25s,transform .15s;text-decoration:none;
+  white-space:nowrap;border-radius:0}
+.btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn:active{transform:none}
+.btn-full{width:100%;justify-content:center}
+.btn-arr{font-size:.95rem;line-height:1;transition:transform .2s}
+.btn:hover .btn-arr{transform:translateX(3px)}
+.nav-btn{padding:11px 22px}
+
+/* ── HERO ── */
+#hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.hero-overlay{position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(12,12,10,.1) 0%,rgba(12,12,10,.02) 35%,
+    rgba(12,12,10,.5) 70%,rgba(12,12,10,.88) 100%)}
+.hero-c{position:relative;z-index:2;padding:0 48px 80px;max-width:1100px;width:100%;margin:0 auto}
+.hero-eye{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;display:block}
+.hero-h{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.8rem);font-weight:300;
+  color:var(--off-white);line-height:1.04;letter-spacing:-.02em;margin-bottom:22px}
+.hero-h em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:clamp(.85rem,1.2vw,.97rem);font-weight:300;
+  color:rgba(245,243,238,.62);line-height:1.72;max-width:540px;margin-bottom:38px}
+.hero-acts{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.hero-note{font-size:.7rem;color:rgba(245,243,238,.32);font-style:italic;font-weight:300}
+.hero-scroll{position:absolute;bottom:30px;right:48px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:7px;opacity:.38}
+.hero-scroll span{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--off-white);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:46px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:.9;transform:scaleY(1.1)}}
+
+/* ── TRUST BAR ── */
+#trust-bar{background:var(--black);padding:0 48px;
+  border-bottom:1px solid rgba(176,154,94,.1)}
+.trust-grid{display:grid;grid-template-columns:repeat(5,1fr);
+  max-width:1100px;margin:0 auto}
+.trust-item{padding:34px 22px 28px;text-align:center;
+  border-right:1px solid rgba(176,154,94,.07)}
+.trust-item:last-child{border-right:none}
+.t-num{font-family:var(--serif);font-size:2.5rem;font-weight:300;color:var(--gold);
+  line-height:1;letter-spacing:-.02em;display:block;margin-bottom:7px}
+.t-lbl{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(245,243,238,.38);line-height:1.5}
+.trust-fn{max-width:1100px;margin:0 auto;padding:13px 0 18px;
+  font-size:.64rem;color:rgba(245,243,238,.2);letter-spacing:.04em;
+  text-align:center;line-height:1.6;border-top:1px solid rgba(176,154,94,.06)}
+
+/* ── SECTIONS ── */
+.si{max-width:1100px;margin:0 auto;padding:0 48px}
+.sl{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:17px;display:block}
+.bp{font-size:.875rem;line-height:1.9;color:var(--mid);font-weight:300;margin-bottom:15px}
+.bp:last-of-type{margin-bottom:0}
+
+/* ── DESTINATION ── */
+#destination{background:var(--off-white);overflow:hidden}
+.dest-grid{display:grid;grid-template-columns:1fr 1fr;min-height:700px}
+.dest-img{position:relative;overflow:hidden}
+.dest-img img{width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform 9s ease}
+.dest-img:hover img{transform:scale(1.04)}
+.dest-text{padding:96px 72px;display:flex;flex-direction:column;justify-content:center}
+.dest-h{font-family:var(--serif);font-size:clamp(1.9rem,2.7vw,2.75rem);font-weight:300;
+  color:var(--black);line-height:1.2;margin-bottom:26px;letter-spacing:-.01em}
+.dest-h em{font-style:italic;color:var(--gold)}
+.dest-stats{display:grid;grid-template-columns:repeat(3,1fr);
+  margin-top:42px;border:1px solid var(--border);overflow:hidden}
+.ds{background:var(--black);padding:20px 14px;text-align:center;
+  border-right:1px solid rgba(176,154,94,.07)}
+.ds:last-child{border-right:none}
+.ds-n{font-family:var(--serif);font-size:1.75rem;font-weight:300;color:var(--gold);
+  display:block;line-height:1;margin-bottom:5px}
+.ds-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(245,243,238,.38);line-height:1.5}
+
+/* ── DEVELOPMENT ── */
+#development{background:var(--black);padding:110px 0 0}
+.dev-top{max-width:1100px;margin:0 auto;padding:0 48px 52px}
+.dev-h{font-family:var(--serif);font-size:clamp(2rem,3vw,2.85rem);font-weight:300;
+  color:var(--off-white);line-height:1.2;letter-spacing:-.01em}
+.dev-h em{color:var(--gold);font-style:italic}
+.dev-hero-img{width:100%;height:580px;object-fit:cover;
+  object-position:center 60%;display:block}
+.dev-body{display:grid;grid-template-columns:1fr 1fr;gap:76px;
+  max-width:1100px;margin:0 auto;padding:68px 48px}
+.dev-intro{font-family:var(--serif);font-size:1.12rem;font-style:italic;
+  font-weight:300;color:rgba(245,243,238,.82);line-height:1.65;margin-bottom:18px}
+.dev-p{font-size:.87rem;color:rgba(245,243,238,.48);line-height:1.85;font-weight:300}
+.spec-t{width:100%;border-collapse:collapse}
+.spec-t tr{border-bottom:1px solid rgba(176,154,94,.08)}
+.spec-t tr:last-child{border-bottom:none}
+.spec-t td{padding:11px 0;font-size:.79rem;line-height:1.5;vertical-align:top}
+.spec-t td:first-child{color:var(--gold);font-size:.6rem;letter-spacing:.1em;
+  text-transform:uppercase;width:36%;padding-right:14px;padding-top:13px}
+.spec-t td:last-child{color:rgba(245,243,238,.68);font-weight:300}
+
+/* Lagoon callout */
+.lagoon-wrap{position:relative;overflow:hidden}
+.lagoon-bg{position:absolute;inset:0}
+.lagoon-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.lagoon-bg-ov{position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(12,12,10,.88) 0%,rgba(12,12,10,.72) 55%,rgba(12,12,10,.5) 100%)}
+.lagoon-c{position:relative;z-index:2;max-width:1100px;margin:0 auto;
+  padding:72px 48px;border-left:3px solid var(--gold)}
+.lagoon-q{font-family:var(--serif);font-size:clamp(1.4rem,2.3vw,1.95rem);
+  font-weight:300;font-style:italic;color:var(--off-white);line-height:1.44;margin-bottom:14px}
+.lagoon-sub{font-size:.8rem;color:rgba(245,243,238,.42);
+  line-height:1.78;font-weight:300;max-width:680px}
+
+/* ── GALLERY ── */
+.gallery-wrap{background:var(--black);padding:52px 0 36px;overflow:hidden}
+.gallery-track{display:flex;gap:10px;padding:0 48px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch}
+.gallery-track::-webkit-scrollbar{display:none}
+.gi{flex:0 0 410px;height:310px;position:relative;scroll-snap-align:start;
+  overflow:hidden;cursor:pointer}
+.gi img{width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;display:block}
+.gi:hover img{transform:scale(1.05)}
+.g-cap{position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(8,8,6,.82));
+  padding:34px 16px 14px;pointer-events:none}
+.g-cap-t{font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(245,243,238,.62)}
+.g-dots{display:flex;gap:5px;justify-content:center;
+  margin-top:16px;padding:0 48px 2px}
+.gd{width:26px;height:1px;background:rgba(176,154,94,.2);
+  border:none;padding:0;cursor:pointer;transition:background .3s}
+.gd.on{background:var(--gold)}
+.amenities-row{max-width:1100px;margin:0 auto;padding:28px 48px 48px;
+  border-top:1px solid rgba(176,154,94,.07);margin-top:28px}
+.am-lbl{font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:13px;display:block}
+.am-list{display:flex;flex-wrap:wrap;gap:5px 16px;list-style:none}
+.am-list li{font-size:.74rem;color:rgba(245,243,238,.36);font-weight:300;
+  letter-spacing:.02em;display:flex;align-items:center;gap:6px}
+.am-list li::before{content:'';width:3px;height:3px;border-radius:50%;
+  background:var(--gold);opacity:.5;flex-shrink:0}
+
+/* ── INVESTMENT ── */
+#investment{background:var(--off-white);padding:110px 0}
+.inv-intro{max-width:680px;margin-bottom:56px}
+.inv-h{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;
+  color:var(--black);line-height:1.2;margin-bottom:18px;letter-spacing:-.01em}
+.inv-intro p{font-size:.87rem;color:var(--mid);line-height:1.85;font-weight:300}
+.stats4{display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);margin-bottom:52px;overflow:hidden}
+.sc4{background:var(--black);padding:38px 26px;text-align:center;
+  border-right:1px solid rgba(176,154,94,.07)}
+.sc4:last-child{border-right:none}
+.sn{font-family:var(--serif);font-size:clamp(2.1rem,2.9vw,2.9rem);font-weight:300;
+  color:var(--gold);line-height:1;letter-spacing:-.02em;display:block;margin-bottom:9px}
+.sd{font-size:.66rem;color:rgba(245,243,238,.48);line-height:1.45;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+.ss{font-size:.57rem;color:rgba(176,154,94,.38);font-style:italic}
+.t-lbl2{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:15px;display:block}
+.rtw{overflow-x:auto;margin-bottom:46px}
+.rt{width:100%;border-collapse:collapse;min-width:500px}
+.rt thead tr{border-bottom:2px solid var(--border)}
+.rt th{padding:12px 18px;text-align:left;font-size:.61rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);font-weight:400}
+.rt th:not(:first-child){text-align:right}
+.rt td{padding:13px 18px;font-size:.81rem;color:var(--mid);
+  border-bottom:1px solid var(--border-light);font-weight:300}
+.rt td:not(:first-child){text-align:right;font-family:var(--serif);
+  font-size:.9rem;color:var(--black);font-weight:400}
+.rt tr.hl td{background:var(--gold-glow);border-bottom:1px solid var(--border)}
+.rt tr.hl td:not(:first-child){font-weight:500;color:var(--black)}
+.tfn{font-size:.68rem;color:var(--muted);line-height:1.65;
+  margin-top:11px;padding-top:11px;border-top:1px solid var(--border-light);font-weight:300}
+.appr{display:grid;grid-template-columns:1fr 1fr;
+  background:var(--black);border:1px solid rgba(176,154,94,.17);margin-bottom:48px}
+.appr-l{padding:38px 42px;border-right:1px solid rgba(176,154,94,.09)}
+.appr-lbl{font-size:.61rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;display:block}
+.appr-nums{display:flex;align-items:baseline;gap:13px;margin-bottom:8px}
+.appr-from{font-family:var(--serif);font-size:1.55rem;font-weight:300;
+  color:rgba(245,243,238,.38);text-decoration:line-through;
+  text-decoration-color:rgba(245,243,238,.15)}
+.appr-arr{color:var(--gold);font-size:1.15rem}
+.appr-to{font-family:var(--serif);font-size:2.1rem;font-weight:300;color:var(--off-white)}
+.appr-gain{font-size:.76rem;color:rgba(176,154,94,.72);font-weight:300}
+.appr-r{padding:38px 42px;display:flex;align-items:center}
+.appr-r p{font-size:.81rem;color:rgba(245,243,238,.45);line-height:1.82;font-weight:300}
+.paybar{background:var(--gold-glow);border:1px solid var(--border);
+  padding:24px 34px;display:flex;align-items:center;gap:32px;
+  flex-wrap:wrap;margin-bottom:52px}
+.pay-lbl{font-size:.59rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);white-space:nowrap;flex-shrink:0}
+.pay-steps{display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex:1}
+.ps{font-size:.77rem;color:var(--mid);font-weight:300;padding:5px 12px;
+  border:1px solid var(--border);background:var(--off-white);white-space:nowrap}
+.pd{color:rgba(176,154,94,.3);font-size:.75rem}
+.pc{font-size:.74rem;color:var(--muted);font-weight:300;white-space:nowrap;flex-shrink:0}
+.mid-cta{background:var(--black);border:1px solid rgba(176,154,94,.17);
+  padding:42px 46px;display:flex;align-items:center;
+  justify-content:space-between;gap:30px;flex-wrap:wrap}
+.mid-cta h3{font-family:var(--serif);font-size:1.5rem;font-weight:300;
+  color:var(--off-white);margin-bottom:7px}
+.mid-cta p{font-size:.79rem;color:rgba(245,243,238,.4);font-weight:300;
+  max-width:460px;line-height:1.65}
+
+/* ── LEGAL ── */
+#legal{background:var(--off-white);padding:94px 0;
+  border-top:1px solid var(--border-light)}
+.legal-h{font-family:var(--serif);font-size:clamp(1.85rem,2.7vw,2.45rem);
+  font-weight:300;color:var(--black);margin-bottom:48px;
+  max-width:560px;line-height:1.25;letter-spacing:-.01em}
+.legal3{display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);overflow:hidden;margin-bottom:30px}
+.lc{padding:34px 30px;border-right:1px solid var(--border);background:var(--off-white)}
+.lc:last-child{border-right:none}
+.lc-ico{font-size:1.05rem;color:var(--gold);margin-bottom:13px;display:block}
+.lc-h{font-family:var(--serif);font-size:1.08rem;font-weight:400;
+  color:var(--black);margin-bottom:11px}
+.lc-p{font-size:.81rem;color:var(--mid);line-height:1.82;font-weight:300}
+.lc-p em{font-style:italic}
+.legal-note{border-left:2px solid var(--gold);background:rgba(176,154,94,.04);
+  padding:21px 26px;font-size:.81rem;color:var(--mid);line-height:1.8;font-weight:300}
+.legal-note strong{color:var(--black);font-weight:500}
+
+/* ── TEAM ── */
+#team{background:var(--charcoal);padding:110px 0}
+.team-h{font-family:var(--serif);font-size:clamp(1.85rem,2.7vw,2.45rem);
+  font-weight:300;color:var(--off-white);margin-bottom:48px;
+  max-width:580px;line-height:1.25}
+.team4{display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid rgba(176,154,94,.09);overflow:hidden;margin-bottom:26px}
+.tc{padding:30px 26px;border-right:1px solid rgba(176,154,94,.07);
+  background:var(--charcoal);transition:background .3s}
+.tc:last-child{border-right:none}
+.tc:hover{background:rgba(176,154,94,.03)}
+.tc-role{font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:9px;display:block}
+.tc-n{font-family:var(--serif);font-size:1.1rem;font-weight:400;
+  color:var(--off-white);margin-bottom:12px;line-height:1.3}
+.tc-b{font-size:.76rem;color:rgba(245,243,238,.4);line-height:1.78;font-weight:300}
+.tc-hl{font-size:.67rem;color:rgba(176,154,94,.52);
+  margin-top:11px;font-style:italic;line-height:1.5}
+.team-fn{font-size:.77rem;color:rgba(245,243,238,.26);line-height:1.75;
+  font-style:italic;font-weight:300;padding-top:20px;
+  border-top:1px solid rgba(176,154,94,.07)}
+
+/* ── PLC ROLE ── */
+#plc-role{background:var(--off-white);padding:110px 0}
+.plc-layout{display:grid;grid-template-columns:340px 1fr;gap:84px;align-items:start}
+.plc-sticky{position:sticky;top:46px}
+.plc-mark{aspect-ratio:4/3;background:var(--black);display:flex;
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:9px;margin-bottom:22px}
+.plc-mono{font-family:var(--serif);font-size:3.6rem;font-weight:300;
+  color:var(--gold);letter-spacing:.08em;line-height:1}
+.plc-mono-sub{font-size:.56rem;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(176,154,94,.36)}
+.plc-id{padding:16px 0;border-top:1px solid var(--border-light);
+  border-bottom:1px solid var(--border-light)}
+.plc-name{font-family:var(--serif);font-size:1.08rem;color:var(--black);margin-bottom:3px}
+.plc-title{font-size:.69rem;color:var(--muted);letter-spacing:.06em;line-height:1.6}
+.plc-h{font-family:var(--serif);font-size:clamp(1.75rem,2.4vw,2.3rem);font-weight:300;
+  color:var(--black);line-height:1.25;margin-bottom:30px;letter-spacing:-.01em}
+.plc-h em{font-style:italic;color:var(--gold)}
+.plc-ps p{font-size:.86rem;color:var(--mid);line-height:1.92;
+  font-weight:300;margin-bottom:17px}
+.plc-ps strong{color:var(--black);font-weight:500}
+.plc-q{background:var(--black);border:1px solid rgba(176,154,94,.13);
+  padding:26px 30px;margin-top:34px;display:flex;gap:15px;align-items:flex-start}
+.plc-q-bar{width:2px;min-height:42px;background:var(--gold);
+  flex-shrink:0;align-self:stretch}
+.plc-q p{font-family:var(--serif);font-size:1.03rem;font-weight:300;
+  font-style:italic;color:rgba(245,243,238,.72);line-height:1.62}
+
+/* ── FORM ── */
+#form-section{background:var(--black);padding:110px 0;position:relative;overflow:hidden}
+#form-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--gold) 50%,transparent 100%)}
+.form-wrap{max-width:700px;margin:0 auto;padding:0 48px;text-align:center}
+.form-h{font-family:var(--serif);font-size:clamp(2.1rem,3.5vw,3.1rem);font-weight:300;
+  color:var(--off-white);line-height:1.18;margin-bottom:14px;letter-spacing:-.02em}
+.form-sub{font-size:.83rem;color:rgba(245,243,238,.38);line-height:1.78;
+  font-weight:300;margin-bottom:48px;max-width:560px;
+  margin-left:auto;margin-right:auto}
+.ef{text-align:left}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}
+.frf{margin-bottom:13px}
+.ff{display:flex;flex-direction:column;gap:5px}
+.ff label{font-size:.59rem;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(245,243,238,.34)}
+.ff input,.ff select,.ff textarea{
+  background:rgba(255,255,255,.033);border:1px solid rgba(176,154,94,.17);
+  color:var(--off-white);font-family:var(--sans);font-size:.875rem;
+  font-weight:300;padding:13px 15px;outline:none;
+  transition:border-color .25s,background .25s;
+  appearance:none;-webkit-appearance:none;border-radius:0}
+.ff input::placeholder,.ff textarea::placeholder{
+  color:rgba(245,243,238,.17);font-style:italic}
+.ff input:focus,.ff select:focus,.ff textarea:focus{
+  border-color:rgba(176,154,94,.48);background:rgba(255,255,255,.052)}
+.ff select{
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B09A5E' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;
+  padding-right:36px;cursor:pointer}
+.ff select option{background:#1e1d1a;color:var(--off-white)}
+.ff textarea{resize:vertical;min-height:92px}
+.gdpr-row{display:flex;align-items:flex-start;gap:11px;margin:22px 0 32px}
+.gdpr-row input[type="checkbox"]{flex-shrink:0;width:15px;height:15px;
+  margin-top:3px;accent-color:var(--gold);cursor:pointer;padding:0}
+.gdpr-lbl{font-size:.72rem;color:rgba(245,243,238,.28);line-height:1.65;font-weight:300}
+.f-re{font-size:.65rem;color:rgba(245,243,238,.18);
+  text-align:center;margin-top:13px;line-height:1.6;font-weight:300}
+.form-ok{display:none;text-align:center;padding:60px 20px}
+.form-ok.show{display:block}
+.ok-ring{width:54px;height:54px;border:1px solid var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 26px;font-size:1.35rem;color:var(--gold)}
+.ok-h{font-family:var(--serif);font-size:1.9rem;font-weight:300;
+  color:var(--off-white);margin-bottom:14px;line-height:1.3}
+.ok-b{font-size:.81rem;color:rgba(245,243,238,.4);line-height:1.78;font-weight:300}
+.ok-b a{color:var(--gold);text-decoration:none}
+
+/* ── FOOTER ── */
+footer{background:#080806;padding:62px 48px 42px;
+  border-top:1px solid rgba(176,154,94,.08)}
+.fg{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:46px;
+  max-width:1100px;margin:0 auto 42px}
+.fc-t{font-size:.59rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:17px;display:block}
+.footer-col p,.footer-col address{font-style:normal;font-size:.76rem;
+  color:rgba(245,243,238,.28);line-height:1.85;font-weight:300}
+.footer-col a{color:rgba(245,243,238,.28);text-decoration:none;
+  font-size:.76rem;line-height:2.1;display:block;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.f-legal{max-width:1100px;margin:0 auto;padding-top:26px;
+  border-top:1px solid rgba(176,154,94,.06);font-size:.63rem;
+  color:rgba(245,243,238,.15);line-height:1.72;font-weight:300}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
+.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav,nav.sc{padding:18px 28px}
+  .hero-c{padding:0 28px 60px}
+  .hero-scroll{right:28px}
+  #trust-bar{padding:0 28px}
+  .trust-grid{grid-template-columns:repeat(3,1fr)}
+  .trust-item:nth-child(4),.trust-item:nth-child(5){border-top:1px solid rgba(176,154,94,.07)}
+  .si{padding:0 28px}
+  .dest-grid{grid-template-columns:1fr}
+  .dest-img{min-height:400px}
+  .dest-text{padding:60px 36px}
+  .dev-top{padding:0 28px 44px}
+  .dev-body{grid-template-columns:1fr;gap:38px;padding:52px 28px}
+  .lagoon-c{padding:60px 36px}
+  .gallery-track{padding:0 28px}
+  .amenities-row{padding:26px 28px 42px}
+  .stats4{grid-template-columns:repeat(2,1fr)}
+  .sc4:nth-child(2){border-right:none}
+  .sc4:nth-child(3){border-top:1px solid rgba(176,154,94,.07)}
+  .appr{grid-template-columns:1fr}
+  .appr-l{border-right:none;border-bottom:1px solid rgba(176,154,94,.09)}
+  .legal3{grid-template-columns:1fr}
+  .lc{border-right:none;border-bottom:1px solid var(--border)}
+  .lc:last-child{border-bottom:none}
+  .team4{grid-template-columns:repeat(2,1fr)}
+  .tc:nth-child(2){border-right:none}
+  .tc:nth-child(3){border-top:1px solid rgba(176,154,94,.07)}
+  .tc:nth-child(4){border-top:1px solid rgba(176,154,94,.07);border-right:none}
+  .plc-layout{grid-template-columns:1fr;gap:44px}
+  .plc-sticky{position:static}
+  .mid-cta{flex-direction:column;text-align:center}
+  .fg{grid-template-columns:1fr 1fr;gap:32px}
+  .form-wrap{padding:0 28px}
+  footer{padding:50px 28px 34px}
+}
+@media(max-width:600px){
+  nav,nav.sc{padding:16px 20px}
+  .nav-btn{display:none}
+  .hero-c{padding:0 20px 52px}
+  .hero-scroll{display:none}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-item:nth-child(5){grid-column:span 2;border-right:none}
+  .si{padding:0 20px}
+  .dest-text{padding:48px 22px}
+  .dest-stats{grid-template-columns:1fr}
+  .ds{border-right:none;border-bottom:1px solid rgba(176,154,94,.07)}
+  .dev-top{padding:0 20px 36px}
+  .dev-body{padding:42px 20px}
+  .dev-hero-img{height:320px}
+  .lagoon-c{padding:48px 22px}
+  .gallery-track{padding:0 20px}
+  .gi{flex:0 0 300px;height:240px}
+  .amenities-row{padding:22px 20px 38px}
+  .stats4{grid-template-columns:1fr 1fr}
+  .rt{min-width:450px}
+  .appr-l,.appr-r{padding:28px 22px}
+  .paybar{flex-direction:column;align-items:flex-start;
+    gap:13px;padding:20px 22px}
+  .mid-cta{padding:30px 22px}
+  .team4{grid-template-columns:1fr}
+  .tc{border-right:none;border-bottom:1px solid rgba(176,154,94,.07)}
+  .legal3{grid-template-columns:1fr}
+  .plc-layout{gap:34px}
+  .form-wrap{padding:0 20px}
+  .fr{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}
+  footer{padding:42px 20px 30px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    Private Luxury Collection
+    <span>Exclusive European Mandate</span>
+  </a>
+  <a href="#form-section" class="btn nav-btn">Request Buyer Pack <span class="btn-arr">→</span></a>
+</nav>
+
+<!-- S1 HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="Aerial view of the Costa dos Corais coastline, Alagoas, Brazil" loading="eager" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-c">
+    <span class="hero-eye rv">Private Luxury Collection &nbsp;·&nbsp; Exclusive European Mandate</span>
+    <h1 class="hero-h rv d1">Between the Waters.<br><em>Alagoas, Brazil.</em></h1>
+    <p class="hero-sub rv d2">A pre-launch luxury coastal resort on one of the world's most protected and extraordinary coastlines. 89 private homes. The only Blue Flag certified beach in Alagoas. Six private freshwater lagoons. February 2029 completion.</p>
+    <div class="hero-acts rv d3">
+      <a href="#form-section" class="btn">Request the Buyer Confidence Pack <span class="btn-arr">→</span></a>
+      <span class="hero-note">Complimentary &nbsp;·&nbsp; For qualified buyers and professional advisors</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- S2 TRUST BAR -->
+<section id="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item rv"><span class="t-num">€511K</span><span class="t-lbl">Entry price from</span></div>
+    <div class="trust-item rv d1"><span class="t-num">12%</span><span class="t-lbl">Annual property appreciation p.a.</span></div>
+    <div class="trust-item rv d2"><span class="t-num">27%</span><span class="t-lbl">Total annual return — Brazil's highest</span></div>
+    <div class="trust-item rv d3"><span class="t-num">89</span><span class="t-lbl">Private homes in total</span></div>
+    <div class="trust-item rv d4"><span class="t-num">100%</span><span class="t-lbl">NovaSan completion record · 350+ projects</span></div>
+  </div>
+  <p class="trust-fn">Property appreciation &amp; total return: Referência Capital / CNN Money, May 2025 &nbsp;·&nbsp; Entry price at EUR/BRL 5.92, May 2026 &nbsp;·&nbsp; NovaSan Engenharia: 55 years, 350+ completed projects</p>
+</section>
+
+<!-- S3 DESTINATION -->
+<section id="destination">
+  <div class="dest-grid">
+    <div class="dest-img">
+      <img src="images/destination.jpg" alt="Aerial view of Beach House with private lagoon, ENTREÁGUAS MILAGRES">
+    </div>
+    <div class="dest-text">
+      <span class="sl rv">The destination</span>
+      <h2 class="dest-h rv">The coastline Brazil's most discerning travellers have kept <em>to themselves</em>.</h2>
+      <p class="bp rv">Most Europeans haven't heard of São Miguel dos Milagres. Most Brazilians who matter have been going there for years. That gap is exactly where the value lives.</p>
+      <p class="bp rv d1">Milagres sits on the Costa dos Corais — the second largest coral reef system in the world — in the state of Alagoas. The water is warm, crystalline, and calm year-round. Natural tide pools form when the tide recedes. The Tatuamunha River is one of the few places in Brazil where you can still observe manatees in their natural habitat.</p>
+      <p class="bp rv d2">This is already where Brazil's ultra-wealthy spend New Year's Eve. Actress Glória Pires owns a compound here that rents for approximately R$8,000 per night. The destination is validated at the very highest level of Brazilian domestic demand. What it hasn't had is a structured access point for European buyers. That changes now.</p>
+      <div class="dest-stats rv d3">
+        <div class="ds"><span class="ds-n">65%</span><span class="ds-l">Foreign tourist growth<br>Jan–Feb 2025</span></div>
+        <div class="ds"><span class="ds-n">2nd</span><span class="ds-l">Largest coral reef<br>in the world</span></div>
+        <div class="ds"><span class="ds-n">25km</span><span class="ds-l">New international airport<br>under development</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4 DEVELOPMENT -->
+<section id="development">
+  <div class="dev-top">
+    <span class="sl rv" style="color:rgba(176,154,94,.6)">The development</span>
+    <h2 class="dev-h rv">ENTREÁGUAS MILAGRES<br><em>'Between the Waters'</em></h2>
+  </div>
+  <img src="images/dev-hero.jpg" alt="Aerial view of ENTREÁGUAS MILAGRES resort and private beach club on Patacho Beach" class="dev-hero-img rv">
+  <div class="dev-body">
+    <div>
+      <p class="dev-intro">A private resort of 89 homes on Patacho Beach — the only Blue Flag certified beach in Alagoas. Six private freshwater lagoons covering 17,000 m². A 5,000 m² beach club for residents exclusively.</p>
+      <p class="dev-p">This is not a generic resort finish. It is a development designed by people whose work you can independently verify — and built by a construction company with a 100% completion record across more than 350 projects.</p>
+    </div>
+    <div>
+      <table class="spec-t">
+        <tr><td>Location</td><td>Patacho Beach, Porto de Pedras / São Miguel dos Milagres, Alagoas, Brazil</td></tr>
+        <tr><td>Land area</td><td>83,400 m²</td></tr>
+        <tr><td>Total homes</td><td>89 — 47 Beach House + 42 Beach Lake</td></tr>
+        <tr><td>Beach House</td><td>From 304 m² · 5 suites · private pool · 3 parking spaces</td></tr>
+        <tr><td>Beach Lake</td><td>From 212 m² · 4 suites · private pool · 2 parking spaces</td></tr>
+        <tr><td>Freshwater lagoons</td><td>6 lagoons · 17,000 m² · 1.3 km shoreline</td></tr>
+        <tr><td>Private beach club</td><td>5,000 m² on Patacho Beach — residents only</td></tr>
+        <tr><td>Completion</td><td>February 2029</td></tr>
+        <tr><td>Legal status</td><td>Incorporated · R-1, no. 5,648, Porto de Pedras/AL</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Lagoon callout with real image background -->
+  <div class="lagoon-wrap rv">
+    <div class="lagoon-bg">
+      <img src="images/lagoon-callout.jpg" alt="Beach House reflected in the private freshwater lagoon at golden hour">
+    </div>
+    <div class="lagoon-bg-ov"></div>
+    <div class="lagoon-c">
+      <p class="lagoon-q">"Six private freshwater lagoons. 17,000 m² of swimmable, crystal-clear water. Built using proprietary Aqualar technology. Nothing comparable exists on the entire Costa dos Corais coastline."</p>
+      <p class="lagoon-sub">ENTREÁGUAS MILAGRES takes its name — Between the Waters — from its defining feature. Every home holds direct lagoon or ocean access. This is not a shared amenity at a distance. It is the landscape the entire development is built around.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery-wrap">
+  <div class="gallery-track" id="gallery">
+    <div class="gi">
+      <img src="images/gallery-1.jpg" alt="Varanda lounge terrace — ENTREÁGUAS MILAGRES resort">
+      <div class="g-cap"><span class="g-cap-t">Varanda lounge — resort terrace</span></div>
+    </div>
+    <div class="gi">
+      <img src="images/gallery-2.jpg" alt="Private beach club on Patacho Beach">
+      <div class="g-cap"><span class="g-cap-t">Private beach club — Patacho Beach</span></div>
+    </div>
+    <div class="gi">
+      <img src="images/gallery-3.jpg" alt="Lounge Entreáguas — resort pool deck">
+      <div class="g-cap"><span class="g-cap-t">Lounge Entreáguas — pool deck</span></div>
+    </div>
+    <div class="gi">
+      <img src="images/gallery-4.jpg" alt="Lounge Molhado — floating daybed in the lagoon">
+      <div class="g-cap"><span class="g-cap-t">Lounge Molhado — lagoon daybed</span></div>
+    </div>
+    <div class="gi">
+      <img src="images/gallery-5.jpg" alt="Beach House living room and kitchen with pool views">
+      <div class="g-cap"><span class="g-cap-t">Beach House — open-plan living</span></div>
+    </div>
+    <div class="gi">
+      <img src="images/gallery-6.jpg" alt="Beach Loft sala and veranda with private pool at dusk">
+      <div class="g-cap"><span class="g-cap-t">Beach Loft — veranda &amp; private pool</span></div>
+    </div>
+  </div>
+  <div class="g-dots" id="gdots">
+    <button class="gd on" data-i="0"></button>
+    <button class="gd" data-i="1"></button>
+    <button class="gd" data-i="2"></button>
+    <button class="gd" data-i="3"></button>
+    <button class="gd" data-i="4"></button>
+    <button class="gd" data-i="5"></button>
+  </div>
+  <div class="amenities-row">
+    <span class="am-lbl">Resort amenities</span>
+    <ul class="am-list">
+      <li>Full-service beach club &amp; restaurant</li>
+      <li>Spa &amp; wellness centre</li>
+      <li>Gym with ocean views</li>
+      <li>Teen &amp; children's facilities</li>
+      <li>Wedding venue — waterfront setting</li>
+      <li>EV charging infrastructure</li>
+      <li>24h smart security &amp; facial recognition</li>
+      <li>Golf partnership</li>
+      <li>Helipad access</li>
+      <li>Smart home infrastructure</li>
+      <li>Bilingual concierge</li>
+      <li>Remote check-in / check-out</li>
+      <li>Viva ENTREÁGUAS activity calendar</li>
+      <li>Private chef on demand</li>
+    </ul>
+  </div>
+</div>
+
+<!-- S5 INVESTMENT -->
+<section id="investment">
+  <div class="si">
+    <div class="inv-intro">
+      <span class="sl rv">The investment case</span>
+      <h2 class="inv-h rv">The numbers are independently verified. Here they are.</h2>
+      <p class="rv">São Miguel dos Milagres has been identified by Referência Capital as the single most profitable destination for short-stay rental investment in Brazil. Every figure below is attributed to its source. We do not present developer projections as market data.</p>
+    </div>
+    <div class="stats4 rv">
+      <div class="sc4"><span class="sn">12%</span><p class="sd">Annual property appreciation p.a.</p><p class="ss">Referência Capital / CNN Money, May 2025</p></div>
+      <div class="sc4"><span class="sn">27%</span><p class="sd">Total annual return — Brazil's highest</p><p class="ss">Referência Capital / CNN Money, May 2025</p></div>
+      <div class="sc4"><span class="sn">40.49%</span><p class="sd">Projected value increase over 36 months</p><p class="ss">ENINOVA Modelo Lucxo, 12% p.a.</p></div>
+      <div class="sc4"><span class="sn">#1</span><p class="sd">Most profitable short-stay rental market in Brazil</p><p class="ss">Referência Capital, 2025</p></div>
+    </div>
+    <div class="rtw rv">
+      <span class="t-lbl2">What a 304 m² Beach House generates — ENINOVA Modelo Lucxo</span>
+      <table class="rt">
+        <thead><tr><th>Metric</th><th>55% occupancy</th><th>70% occupancy</th></tr></thead>
+        <tbody>
+          <tr><td>Nights sold (of 30)</td><td>17</td><td>21</td></tr>
+          <tr><td>Average daily rate</td><td>R$4,900 (≈€828)</td><td>R$4,900 (≈€828)</td></tr>
+          <tr><td>Gross monthly revenue</td><td>R$80,850 (≈€13,650)</td><td>R$102,900 (≈€17,380)</td></tr>
+          <tr class="hl"><td>Net monthly profit (before tax)</td><td>R$45,873 (≈€7,750)</td><td>R$59,802 (≈€10,100)</td></tr>
+          <tr class="hl"><td>Monthly return on purchase price</td><td>1.04%</td><td>1.35%</td></tr>
+          <tr class="hl"><td>Annualised net yield</td><td>12.5%</td><td>16.2%</td></tr>
+        </tbody>
+      </table>
+      <p class="tfn">Net of all operating costs including distribution (12%), management (15%), condominium, IPTU, energy, cleaning, and laundry. Before Brazilian income tax (IRRF 15% for non-residents, deducted at source). EUR figures at R$5.92 = €1 (May 2026). Source: ENINOVA Modelo Lucxo, 2025. Projected figures — not guaranteed returns.</p>
+    </div>
+    <div class="appr rv">
+      <div class="appr-l">
+        <span class="appr-lbl">36-month capital appreciation — Beach House</span>
+        <div class="appr-nums">
+          <span class="appr-from">€745K</span>
+          <span class="appr-arr">→</span>
+          <span class="appr-to">≈€1,047K</span>
+        </div>
+        <p class="appr-gain">Projected gain of ≈€302,000 &nbsp;·&nbsp; 40.49% increase</p>
+      </div>
+      <div class="appr-r">
+        <p>Based on the 12% annual appreciation rate independently verified for São Miguel dos Milagres by Referência Capital (CNN Money, May 2025). EUR figures at R$5.92 = €1. Projected figure — not a guaranteed return. Actual EUR value depends on the prevailing EUR/BRL exchange rate at time of sale.</p>
+      </div>
+    </div>
+    <div class="paybar rv">
+      <span class="pay-lbl">Payment structure</span>
+      <div class="pay-steps">
+        <span class="ps">20% on contract</span><span class="pd">·</span>
+        <span class="ps">42 monthly instalments</span><span class="pd">·</span>
+        <span class="ps">6 semi-annual payments</span><span class="pd">·</span>
+        <span class="ps">30% balance on completion</span>
+      </div>
+      <span class="pc">Completion February 2029</span>
+    </div>
+    <div class="mid-cta rv">
+      <div>
+        <h3>Ready to review the full investment documentation?</h3>
+        <p>The Buyer Confidence Pack covers the complete legal structure for EU nationals, FX mechanics, the full ENINOVA rental model, acquisition costs, and tax considerations. Delivered immediately on submission.</p>
+      </div>
+      <a href="#form-section" class="btn">Request the Buyer Confidence Pack <span class="btn-arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- S6 LEGAL -->
+<section id="legal">
+  <div class="si">
+    <span class="sl rv">How European buyers own this</span>
+    <h2 class="legal-h rv">You own it outright. Here is how.</h2>
+    <div class="legal3 rv">
+      <div class="lc">
+        <span class="lc-ico">◈</span>
+        <h3 class="lc-h">Full foreign ownership</h3>
+        <p class="lc-p">Brazil permits direct property ownership by foreign nationals — no restrictions on non-residents. Protected under Brazilian civil law and constitutional property rights. A European buyer holds exactly the same ownership rights as a Brazilian buyer.</p>
+      </div>
+      <div class="lc">
+        <span class="lc-ico">◈</span>
+        <h3 class="lc-h">Freehold equivalent</h3>
+        <p class="lc-p">Brazilian property law uses <em>plena propriedade</em> — full ownership — recorded via <em>escritura pública</em> (public deed) at the local <em>cartório</em>. Absolute, transferable, and inheritable. The functional equivalent of freehold title in any European jurisdiction.</p>
+      </div>
+      <div class="lc">
+        <span class="lc-ico">◈</span>
+        <h3 class="lc-h">Legally incorporated development</h3>
+        <p class="lc-p">ENTREÁGUAS MILAGRES is a confirmed, legally registered development. Real Estate Incorporation Registry: R-1, registration no. 5,648, Porto de Pedras/AL. Not a pre-registration concept — the legal foundation is in place and independently verifiable.</p>
+      </div>
+    </div>
+    <div class="legal-note rv">
+      <strong>On independent representation:</strong> Every buyer should retain an independent Brazilian lawyer — separate from the developer's team — to conduct title due diligence, review the purchase contract, and manage BACEN registration for capital repatriation. PLC can facilitate introductions to qualified independent counsel. The Buyer Confidence Pack covers the full legal ownership framework and financial transaction mechanics in plain English.
+    </div>
+  </div>
+</section>
+
+<!-- S7 TEAM -->
+<section id="team">
+  <div class="si">
+    <span class="sl rv" style="color:rgba(176,154,94,.52)">The team</span>
+    <h2 class="team-h rv">Designed and built by people whose work you can independently verify.</h2>
+    <div class="team4 rv">
+      <div class="tc">
+        <span class="tc-role">Developer</span>
+        <h3 class="tc-n">Adamo Desenvolvimento Imobiliário</h3>
+        <p class="tc-b">Backed by a group with over 40 years of infrastructure and civil construction experience. Operates the Instituto Milagres, a community development programme serving over 2,000 people across Alagoas and São Paulo.</p>
+      </div>
+      <div class="tc">
+        <span class="tc-role">Construction</span>
+        <h3 class="tc-n">NovaSan Engenharia</h3>
+        <p class="tc-b">55 years of industry experience. Over 350 completed projects — 100% completion record, not a single abandoned project. Clients include Petrobras, Sabesp, Braskem, and the Brazilian Navy.</p>
+        <p class="tc-hl">100% completion record · 350+ projects</p>
+      </div>
+      <div class="tc">
+        <span class="tc-role">Landscape Architecture</span>
+        <h3 class="tc-n">Benedito Abbud</h3>
+        <p class="tc-b">A 48-year career spanning more than 6,000 landscape projects internationally. Projects include the 2014 FIFA World Cup facilities and the 2016 Rio Olympic Games.</p>
+        <p class="tc-hl">2014 World Cup &nbsp;·&nbsp; 2016 Rio Olympics</p>
+      </div>
+      <div class="tc">
+        <span class="tc-role">Rental Management</span>
+        <h3 class="tc-n">ENINOVA Hotels Experience</h3>
+        <p class="tc-b">20 years of luxury hospitality expertise. 10 years of proven regional track record. Full hotel services from day one — bilingual concierge, remote check-in, Viva ENTREÁGUAS activity calendar.</p>
+        <p class="tc-hl">Confirmed daily rate: R$4,900 (≈€828)</p>
+      </div>
+    </div>
+    <p class="team-fn rv">Architecture by Marcelo Franco (Makena Hotel, Carmel Taíba). Interiors by Milena Holanda. Creative curation by Martha Medeiros — an Alagoas native whose work is rooted in the cultural identity and natural soul of the region.</p>
+  </div>
+</section>
+
+<!-- S8 PLC ROLE -->
+<section id="plc-role">
+  <div class="si">
+    <div class="plc-layout">
+      <div class="plc-sticky rv">
+        <div class="plc-mark">
+          <span class="plc-mono">PLC</span>
+          <span class="plc-mono-sub">Private Luxury Collection</span>
+        </div>
+        <div class="plc-id">
+          <p class="plc-name">Keely Capel</p>
+          <p class="plc-title">Managing Director<br>Private Luxury Collection<br>AMI 19171 · Vilamoura, Algarve, Portugal</p>
+        </div>
+      </div>
+      <div>
+        <span class="sl rv">Why Private Luxury Collection</span>
+        <h2 class="plc-h rv">We hold the exclusive European mandate. We did the due diligence. <em>We stay involved.</em></h2>
+        <div class="plc-ps rv">
+          <p>Private Luxury Collection is a boutique luxury property advisory based in Vilamoura, Algarve, Portugal (AMI 19171). We operate exclusively in the HNW and UHNW segment. <strong>We do not distribute developer brochures.</strong> We identify opportunities, conduct due diligence, and present what we believe merits serious consideration to qualified buyers and their professional advisors.</p>
+          <p>We accepted the exclusive European mandate for ENTREÁGUAS MILAGRES because we assessed the developer's credentials, reviewed the legal ownership structure for EU nationals, verified the financial transaction mechanics under Brazilian Central Bank regulations, and scrutinised the market data. The Buyer Confidence Pack covers all of this — written in plain English, structured to withstand scrutiny from a wealth manager's compliance team.</p>
+          <p>We are your European point of contact from this first conversation through to your first rental income statement. You do not hand off to a developer and wonder what happens next.</p>
+        </div>
+        <div class="plc-q rv">
+          <div class="plc-q-bar"></div>
+          <p>"From your first conversation with us to the day you receive your first rental income statement, PLC is your European point of contact. If you have a problem, a question, or a concern at any stage — before or after purchase — you call us. That is the proposition."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S9 FORM -->
+<section id="form-section">
+  <div class="form-wrap">
+    <h2 class="form-h rv">Request the Buyer<br>Confidence Pack.</h2>
+    <p class="form-sub rv">A twelve-section advisory document covering the legal ownership structure for EU nationals, financial transaction mechanics, the complete ENINOVA rental return model, buying costs, and tax considerations. Prepared by Private Luxury Collection. Available to qualified buyers and their professional advisors.</p>
+    <form class="ef rv" id="ef" novalidate>
+      <div class="fr">
+        <div class="ff"><label for="fn">First name *</label><input type="text" id="fn" name="first_name" required placeholder="First name"></div>
+        <div class="ff"><label for="ln">Last name *</label><input type="text" id="ln" name="last_name" required placeholder="Last name"></div>
+      </div>
+      <div class="fr">
+        <div class="ff"><label for="em">Email address *</label><input type="email" id="em" name="email" required placeholder="your@email.com"></div>
+        <div class="ff"><label for="ph">Phone (inc. country code) *</label><input type="tel" id="ph" name="phone" required placeholder="+351 ..."></div>
+      </div>
+      <div class="frf ff">
+        <label for="ro">I am a *</label>
+        <select id="ro" name="role" required>
+          <option value="" disabled selected>Select your role</option>
+          <option>Private buyer</option>
+          <option>Wealth manager or IFA</option>
+          <option>Investment migration lawyer</option>
+          <option>Private bank or family office</option>
+          <option>Tax advisor or accountant</option>
+          <option>Relocation or concierge professional</option>
+          <option>Other professional advisor</option>
+        </select>
+      </div>
+      <div class="frf ff">
+        <label for="co">Country of residence *</label>
+        <select id="co" name="country" required>
+          <option value="" disabled selected>Select country</option>
+          <option>Portugal</option><option>Spain</option>
+          <option>United Kingdom</option><option>Germany</option>
+          <option>Switzerland</option><option>France</option>
+          <option>Netherlands</option><option>Sweden</option>
+          <option>Norway</option><option>Denmark</option>
+          <option>Belgium</option><option>Austria</option>
+          <option>Italy</option><option>Luxembourg</option>
+          <option>Ireland</option><option>Other</option>
+        </select>
+      </div>
+      <div class="frf ff">
+        <label for="ms">Message (optional)</label>
+        <textarea id="ms" name="message" placeholder="Any specific questions or context you'd like to share…"></textarea>
+      </div>
+      <div class="gdpr-row">
+        <input type="checkbox" id="gd" name="gdpr" required>
+        <label class="gdpr-lbl" for="gd">I consent to Private Luxury Collection storing and using my contact details to respond to this enquiry and send relevant property information. I can unsubscribe at any time. Handled in accordance with GDPR and the PLC privacy policy.</label>
+      </div>
+      <button type="submit" class="btn btn-full">Download Buyer Confidence Pack <span class="btn-arr">→</span></button>
+      <p class="f-re">No sales calls without your permission &nbsp;·&nbsp; Private Luxury Collection AMI 19171, Portugal</p>
+    </form>
+    <div class="form-ok" id="form-ok">
+      <div class="ok-ring">✓</div>
+      <h3 class="ok-h">Your Buyer Confidence Pack<br>is downloading now.</h3>
+      <p class="ok-b">
+        A member of the PLC team will be in touch within one business day.<br>
+        For immediate queries: <a href="mailto:entreaguas@privateluxurycollection.com">entreaguas@privateluxurycollection.com</a><br><br>
+        Private Luxury Collection · AMI 19171 · Vilamoura, Algarve, Portugal
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- S10 FOOTER -->
+<footer>
+  <div class="fg">
+    <div class="footer-col">
+      <span class="fc-t">Private Luxury Collection</span>
+      <address>
+        AMI 19171 — Centelha D'Exito Unipessoal Lda<br>
+        Vilamoura, Algarve, Portugal<br><br>
+        <a href="mailto:entreaguas@privateluxurycollection.com">entreaguas@privateluxurycollection.com</a>
+        <a href="https://www.privateluxurycollection.com" target="_blank" rel="noopener">www.privateluxurycollection.com</a>
+      </address>
+    </div>
+    <div class="footer-col">
+      <span class="fc-t">Navigation</span>
+      <a href="https://www.privateluxurycollection.com/about" target="_blank" rel="noopener">About PLC</a>
+      <a href="https://www.privateluxurycollection.com/properties" target="_blank" rel="noopener">Portugal Properties</a>
+      <a href="https://www.privateluxurycollection.com/intelligence-brief" target="_blank" rel="noopener">Intelligence Brief</a>
+      <a href="mailto:entreaguas@privateluxurycollection.com">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="fc-t">Legal</span>
+      <p>© 2026 Private Luxury Collection. All rights reserved. AMI 19171. This page is for informational purposes only and does not constitute financial, legal, or investment advice. EUR figures converted at R$5.92 = €1 (May 2026) — illustrative only. Actual EUR value depends on prevailing EUR/BRL exchange rate. Investment return figures sourced from Referência Capital (CNN Money, May 2025) and ENINOVA Modelo Lucxo (2025). Past performance is not a guarantee of future results. Buyers should seek independent professional advice before making any investment decision. ENTREÁGUAS MILAGRES developed by ADAMO SPE 1 LTDA (CNPJ 48.684.642/0001-83). Incorporation R-1, no. 5,648, Porto de Pedras/AL.</p>
+    </div>
+  </div>
+  <div class="f-legal">
+    Developer: Adamo Desenvolvimento Imobiliário · ADAMO SPE 1 LTDA · Construction: NovaSan Engenharia LTDA · Management: ENINOVA Hotels Experience · PLC Brazilian Partner: ABCNI
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60),{passive:true});
+
+// Reveal on scroll
+const rvEls=document.querySelectorAll('.rv');
+const rvObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target);}});
+},{threshold:.07,rootMargin:'0px 0px -28px 0px'});
+rvEls.forEach(el=>rvObs.observe(el));
+
+// Gallery
+const gal=document.getElementById('gallery');
+const dots=document.querySelectorAll('.gd');
+const itemW=()=>gal.children[0].offsetWidth+10;
+dots.forEach(d=>{
+  d.addEventListener('click',()=>{
+    const i=parseInt(d.dataset.i);
+    gal.scrollTo({left:i*(itemW()),behavior:'smooth'});
+    dots.forEach((x,j)=>x.classList.toggle('on',j===i));
+  });
+});
+gal.addEventListener('scroll',()=>{
+  const i=Math.round(gal.scrollLeft/itemW());
+  dots.forEach((d,j)=>d.classList.toggle('on',j===i));
+},{passive:true});
+
+// Form
+document.getElementById('ef').addEventListener('submit',function(e){
+  e.preventDefault();
+  let ok=true;
+  this.querySelectorAll('[required]').forEach(f=>{
+    if(!f.value||(f.type==='checkbox'&&!f.checked))ok=false;
+  });
+  if(!ok){alert('Please complete all required fields.');return;}
+  this.style.display='none';
+  document.getElementById('form-ok').classList.add('show');
+  // Uncomment and update path when BCP PDF is ready:
+  // const a=document.createElement('a');
+  // a.href='PLC_EntreAguas_Buyer_Confidence_Pack.pdf';
+  // a.download='PLC_EntreAguas_Buyer_Confidence_Pack.pdf';
+  // document.body.appendChild(a);a.click();document.body.removeChild(a);
+});
+</script>
+</body>
+</html>
