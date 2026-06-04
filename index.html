@@ -25,16 +25,34 @@ body{font-family:var(--sans);background:var(--off-white);color:var(--charcoal);
   font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 
+/* ── LANGUAGE SWITCHER ── */
+[data-lang]{display:none}
+body.lang-en [data-lang="en"],
+body.lang-pt [data-lang="pt"],
+body.lang-es [data-lang="es"]{display:inline}
+.lang-switcher{display:flex;align-items:center;gap:6px}
+.lang-btn{background:none;border:none;font-family:var(--sans);font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,238,.4);
+  cursor:pointer;padding:4px 7px;transition:color .2s;border-radius:0;
+  position:relative}
+.lang-btn:hover{color:var(--gold)}
+.lang-btn.active{color:var(--gold)}
+.lang-btn.active::after{content:'';position:absolute;bottom:0;left:7px;
+  right:7px;height:1px;background:var(--gold)}
+.lang-div{width:1px;height:10px;background:rgba(245,243,238,.15)}
+
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;
   display:flex;align-items:center;justify-content:space-between;
-  transition:background .4s,padding .4s,border-color .4s}
-nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48px;
-  border-bottom:1px solid rgba(176,154,94,.1)}
-.nav-logo{font-family:var(--serif);font-size:.95rem;font-weight:400;color:var(--off-white);
-  letter-spacing:.08em;text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
-.nav-logo span{font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--gold);font-family:var(--sans);font-weight:300}
+  transition:background .4s,padding .4s}
+nav.sc{background:rgba(12,12,10,.96);backdrop-filter:blur(14px);
+  padding:14px 48px;border-bottom:1px solid rgba(176,154,94,.1)}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-mark{width:36px;height:36px;flex-shrink:0}
+.nav-logo-mark img{width:100%;height:100%;object-fit:contain}
+.nav-logo-wordmark{height:18px;width:auto}
+.nav-logo-wordmark img{height:100%;width:auto;object-fit:contain}
+.nav-right{display:flex;align-items:center;gap:20px}
 .btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);
   color:var(--black);font-family:var(--sans);font-size:.72rem;font-weight:500;
   letter-spacing:.15em;text-transform:uppercase;padding:15px 32px;border:none;
@@ -48,17 +66,20 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
 .nav-btn{padding:11px 22px}
 
 /* ── HERO ── */
-#hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:flex-end;overflow:hidden}
+#hero{position:relative;height:100vh;min-height:660px;
+  display:flex;align-items:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .hero-overlay{position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(12,12,10,.1) 0%,rgba(12,12,10,.02) 35%,
     rgba(12,12,10,.5) 70%,rgba(12,12,10,.88) 100%)}
-.hero-c{position:relative;z-index:2;padding:0 48px 80px;max-width:1100px;width:100%;margin:0 auto}
+.hero-c{position:relative;z-index:2;padding:0 48px 80px;
+  max-width:1100px;width:100%;margin:0 auto}
 .hero-eye{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;
   color:var(--gold);margin-bottom:18px;display:block}
-.hero-h{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.8rem);font-weight:300;
-  color:var(--off-white);line-height:1.04;letter-spacing:-.02em;margin-bottom:22px}
+.hero-h{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.8rem);
+  font-weight:300;color:var(--off-white);line-height:1.04;
+  letter-spacing:-.02em;margin-bottom:22px}
 .hero-h em{font-style:italic;color:var(--gold)}
 .hero-sub{font-size:clamp(.85rem,1.2vw,.97rem);font-weight:300;
   color:rgba(245,243,238,.62);line-height:1.72;max-width:540px;margin-bottom:38px}
@@ -104,24 +125,25 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
   transition:transform 9s ease}
 .dest-img:hover img{transform:scale(1.04)}
 .dest-text{padding:96px 72px;display:flex;flex-direction:column;justify-content:center}
-.dest-h{font-family:var(--serif);font-size:clamp(1.9rem,2.7vw,2.75rem);font-weight:300;
-  color:var(--black);line-height:1.2;margin-bottom:26px;letter-spacing:-.01em}
+.dest-h{font-family:var(--serif);font-size:clamp(1.9rem,2.7vw,2.75rem);
+  font-weight:300;color:var(--black);line-height:1.2;
+  margin-bottom:26px;letter-spacing:-.01em}
 .dest-h em{font-style:italic;color:var(--gold)}
 .dest-stats{display:grid;grid-template-columns:repeat(3,1fr);
   margin-top:42px;border:1px solid var(--border);overflow:hidden}
 .ds{background:var(--black);padding:20px 14px;text-align:center;
   border-right:1px solid rgba(176,154,94,.07)}
 .ds:last-child{border-right:none}
-.ds-n{font-family:var(--serif);font-size:1.75rem;font-weight:300;color:var(--gold);
-  display:block;line-height:1;margin-bottom:5px}
+.ds-n{font-family:var(--serif);font-size:1.75rem;font-weight:300;
+  color:var(--gold);display:block;line-height:1;margin-bottom:5px}
 .ds-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
   color:rgba(245,243,238,.38);line-height:1.5}
 
 /* ── DEVELOPMENT ── */
 #development{background:var(--black);padding:110px 0 0}
 .dev-top{max-width:1100px;margin:0 auto;padding:0 48px 52px}
-.dev-h{font-family:var(--serif);font-size:clamp(2rem,3vw,2.85rem);font-weight:300;
-  color:var(--off-white);line-height:1.2;letter-spacing:-.01em}
+.dev-h{font-family:var(--serif);font-size:clamp(2rem,3vw,2.85rem);
+  font-weight:300;color:var(--off-white);line-height:1.2;letter-spacing:-.01em}
 .dev-h em{color:var(--gold);font-style:italic}
 .dev-hero-img{width:100%;height:580px;object-fit:cover;
   object-position:center 60%;display:block}
@@ -137,17 +159,16 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
 .spec-t td:first-child{color:var(--gold);font-size:.6rem;letter-spacing:.1em;
   text-transform:uppercase;width:36%;padding-right:14px;padding-top:13px}
 .spec-t td:last-child{color:rgba(245,243,238,.68);font-weight:300}
-
-/* Lagoon callout */
 .lagoon-wrap{position:relative;overflow:hidden}
 .lagoon-bg{position:absolute;inset:0}
 .lagoon-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
 .lagoon-bg-ov{position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(12,12,10,.88) 0%,rgba(12,12,10,.72) 55%,rgba(12,12,10,.5) 100%)}
+  background:linear-gradient(to right,rgba(12,12,10,.9) 0%,rgba(12,12,10,.75) 55%,rgba(12,12,10,.52) 100%)}
 .lagoon-c{position:relative;z-index:2;max-width:1100px;margin:0 auto;
   padding:72px 48px;border-left:3px solid var(--gold)}
 .lagoon-q{font-family:var(--serif);font-size:clamp(1.4rem,2.3vw,1.95rem);
-  font-weight:300;font-style:italic;color:var(--off-white);line-height:1.44;margin-bottom:14px}
+  font-weight:300;font-style:italic;color:var(--off-white);
+  line-height:1.44;margin-bottom:14px}
 .lagoon-sub{font-size:.8rem;color:rgba(245,243,238,.42);
   line-height:1.78;font-weight:300;max-width:680px}
 
@@ -185,16 +206,18 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
 /* ── INVESTMENT ── */
 #investment{background:var(--off-white);padding:110px 0}
 .inv-intro{max-width:680px;margin-bottom:56px}
-.inv-h{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;
-  color:var(--black);line-height:1.2;margin-bottom:18px;letter-spacing:-.01em}
+.inv-h{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);
+  font-weight:300;color:var(--black);line-height:1.2;
+  margin-bottom:18px;letter-spacing:-.01em}
 .inv-intro p{font-size:.87rem;color:var(--mid);line-height:1.85;font-weight:300}
 .stats4{display:grid;grid-template-columns:repeat(4,1fr);
   border:1px solid var(--border);margin-bottom:52px;overflow:hidden}
 .sc4{background:var(--black);padding:38px 26px;text-align:center;
   border-right:1px solid rgba(176,154,94,.07)}
 .sc4:last-child{border-right:none}
-.sn{font-family:var(--serif);font-size:clamp(2.1rem,2.9vw,2.9rem);font-weight:300;
-  color:var(--gold);line-height:1;letter-spacing:-.02em;display:block;margin-bottom:9px}
+.sn{font-family:var(--serif);font-size:clamp(2.1rem,2.9vw,2.9rem);
+  font-weight:300;color:var(--gold);line-height:1;
+  letter-spacing:-.02em;display:block;margin-bottom:9px}
 .sd{font-size:.66rem;color:rgba(245,243,238,.48);line-height:1.45;
   text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
 .ss{font-size:.57rem;color:rgba(176,154,94,.38);font-style:italic}
@@ -289,21 +312,22 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
 
 /* ── PLC ROLE ── */
 #plc-role{background:var(--off-white);padding:110px 0}
-.plc-layout{display:grid;grid-template-columns:340px 1fr;gap:84px;align-items:start}
+.plc-layout{display:grid;grid-template-columns:320px 1fr;gap:84px;align-items:start}
 .plc-sticky{position:sticky;top:46px}
-.plc-mark{aspect-ratio:4/3;background:var(--black);display:flex;
+.plc-mark-box{aspect-ratio:4/3;background:var(--black);display:flex;
   flex-direction:column;align-items:center;justify-content:center;
-  gap:9px;margin-bottom:22px}
-.plc-mono{font-family:var(--serif);font-size:3.6rem;font-weight:300;
-  color:var(--gold);letter-spacing:.08em;line-height:1}
-.plc-mono-sub{font-size:.56rem;letter-spacing:.24em;
-  text-transform:uppercase;color:rgba(176,154,94,.36)}
+  gap:16px;margin-bottom:22px;padding:28px}
+.plc-mark-logo{width:64px;height:64px;flex-shrink:0}
+.plc-mark-logo img{width:100%;height:100%;object-fit:contain}
+.plc-wordmark-logo{width:80%;max-width:200px;height:auto}
+.plc-wordmark-logo img{width:100%;height:auto;object-fit:contain}
 .plc-id{padding:16px 0;border-top:1px solid var(--border-light);
   border-bottom:1px solid var(--border-light)}
 .plc-name{font-family:var(--serif);font-size:1.08rem;color:var(--black);margin-bottom:3px}
 .plc-title{font-size:.69rem;color:var(--muted);letter-spacing:.06em;line-height:1.6}
-.plc-h{font-family:var(--serif);font-size:clamp(1.75rem,2.4vw,2.3rem);font-weight:300;
-  color:var(--black);line-height:1.25;margin-bottom:30px;letter-spacing:-.01em}
+.plc-h{font-family:var(--serif);font-size:clamp(1.75rem,2.4vw,2.3rem);
+  font-weight:300;color:var(--black);line-height:1.25;
+  margin-bottom:30px;letter-spacing:-.01em}
 .plc-h em{font-style:italic;color:var(--gold)}
 .plc-ps p{font-size:.86rem;color:var(--mid);line-height:1.92;
   font-weight:300;margin-bottom:17px}
@@ -316,12 +340,14 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
   font-style:italic;color:rgba(245,243,238,.72);line-height:1.62}
 
 /* ── FORM ── */
-#form-section{background:var(--black);padding:110px 0;position:relative;overflow:hidden}
+#form-section{background:var(--black);padding:110px 0;
+  position:relative;overflow:hidden}
 #form-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent 0%,var(--gold) 50%,transparent 100%)}
 .form-wrap{max-width:700px;margin:0 auto;padding:0 48px;text-align:center}
-.form-h{font-family:var(--serif);font-size:clamp(2.1rem,3.5vw,3.1rem);font-weight:300;
-  color:var(--off-white);line-height:1.18;margin-bottom:14px;letter-spacing:-.02em}
+.form-h{font-family:var(--serif);font-size:clamp(2.1rem,3.5vw,3.1rem);
+  font-weight:300;color:var(--off-white);line-height:1.18;
+  margin-bottom:14px;letter-spacing:-.02em}
 .form-sub{font-size:.83rem;color:rgba(245,243,238,.38);line-height:1.78;
   font-weight:300;margin-bottom:48px;max-width:560px;
   margin-left:auto;margin-right:auto}
@@ -366,6 +392,13 @@ nav.sc{background:rgba(12,12,10,.95);backdrop-filter:blur(14px);padding:14px 48p
 /* ── FOOTER ── */
 footer{background:#080806;padding:62px 48px 42px;
   border-top:1px solid rgba(176,154,94,.08)}
+.footer-logo-row{max-width:1100px;margin:0 auto 40px;
+  display:flex;align-items:center;gap:16px;
+  padding-bottom:32px;border-bottom:1px solid rgba(176,154,94,.08)}
+.footer-logo-mark{width:32px;height:32px;opacity:.7}
+.footer-logo-mark img{width:100%;height:100%;object-fit:contain}
+.footer-logo-wordmark{height:14px;opacity:.7}
+.footer-logo-wordmark img{height:100%;width:auto;object-fit:contain}
 .fg{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:46px;
   max-width:1100px;margin:0 auto 42px}
 .fc-t{font-size:.59rem;letter-spacing:.2em;text-transform:uppercase;
@@ -380,7 +413,8 @@ footer{background:#080806;padding:62px 48px 42px;
   color:rgba(245,243,238,.15);line-height:1.72;font-weight:300}
 
 /* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
+.rv{opacity:0;transform:translateY(20px);
+  transition:opacity .75s ease,transform .75s ease}
 .rv.on{opacity:1;transform:none}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}
 .rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
@@ -420,6 +454,7 @@ footer{background:#080806;padding:62px 48px 42px;
   .fg{grid-template-columns:1fr 1fr;gap:32px}
   .form-wrap{padding:0 28px}
   footer{padding:50px 28px 34px}
+  .footer-logo-row{padding:0 0 28px}
 }
 @media(max-width:600px){
   nav,nav.sc{padding:16px 20px}
@@ -442,8 +477,7 @@ footer{background:#080806;padding:62px 48px 42px;
   .stats4{grid-template-columns:1fr 1fr}
   .rt{min-width:450px}
   .appr-l,.appr-r{padding:28px 22px}
-  .paybar{flex-direction:column;align-items:flex-start;
-    gap:13px;padding:20px 22px}
+  .paybar{flex-direction:column;align-items:flex-start;gap:13px;padding:20px 22px}
   .mid-cta{padding:30px 22px}
   .team4{grid-template-columns:1fr}
   .tc{border-right:none;border-bottom:1px solid rgba(176,154,94,.07)}
@@ -456,15 +490,33 @@ footer{background:#080806;padding:62px 48px 42px;
 }
 </style>
 </head>
-<body>
+<body class="lang-en">
 
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    Private Luxury Collection
-    <span>Exclusive European Mandate</span>
+    <div class="nav-logo-mark">
+      <img src="images/logo-mark.svg" alt="Private Luxury Collection mark">
+    </div>
+    <div class="nav-logo-wordmark">
+      <img src="images/logo-wordmark.svg" alt="Private Luxury Collection">
+    </div>
   </a>
-  <a href="#form-section" class="btn nav-btn">Request Buyer Pack <span class="btn-arr">→</span></a>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-set-lang="en">EN</button>
+      <span class="lang-div"></span>
+      <button class="lang-btn" data-set-lang="pt">PT</button>
+      <span class="lang-div"></span>
+      <button class="lang-btn" data-set-lang="es">ES</button>
+    </div>
+    <a href="#form-section" class="btn nav-btn">
+      <span data-lang="en">Request Buyer Pack</span>
+      <span data-lang="pt">Solicitar Guia</span>
+      <span data-lang="es">Solicitar Guía</span>
+      <span class="btn-arr">→</span>
+    </a>
+  </div>
 </nav>
 
 <!-- S1 HERO -->
@@ -474,12 +526,33 @@ footer{background:#080806;padding:62px 48px 42px;
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-c">
-    <span class="hero-eye rv">Private Luxury Collection &nbsp;·&nbsp; Exclusive European Mandate</span>
-    <h1 class="hero-h rv d1">Between the Waters.<br><em>Alagoas, Brazil.</em></h1>
-    <p class="hero-sub rv d2">A pre-launch luxury coastal resort on one of the world's most protected and extraordinary coastlines. 89 private homes. The only Blue Flag certified beach in Alagoas. Six private freshwater lagoons. February 2029 completion.</p>
+    <span class="hero-eye rv">
+      <span data-lang="en">Private Luxury Collection &nbsp;·&nbsp; Exclusive European Mandate</span>
+      <span data-lang="pt">Private Luxury Collection &nbsp;·&nbsp; Mandato Europeu Exclusivo</span>
+      <span data-lang="es">Private Luxury Collection &nbsp;·&nbsp; Mandato Europeo Exclusivo</span>
+    </span>
+    <h1 class="hero-h rv d1">
+      <span data-lang="en">Between the Waters.<br><em>Alagoas, Brazil.</em></span>
+      <span data-lang="pt">Entre as Águas.<br><em>Alagoas, Brasil.</em></span>
+      <span data-lang="es">Entre las Aguas.<br><em>Alagoas, Brasil.</em></span>
+    </h1>
+    <p class="hero-sub rv d2">
+      <span data-lang="en">A pre-launch luxury coastal resort on one of the world's most protected and extraordinary coastlines. 89 private homes. The only Blue Flag certified beach in Alagoas. Six private freshwater lagoons. February 2029 completion.</span>
+      <span data-lang="pt">Um resort costeiro de luxo em pré-lançamento numa das costas mais protegidas e extraordinárias do mundo. 89 residências privadas. A única praia Bandeira Azul de Alagoas. Seis lagoas privadas de água doce. Conclusão em fevereiro de 2029.</span>
+      <span data-lang="es">Un resort costero de lujo en prelanzamiento en una de las costas más protegidas y extraordinarias del mundo. 89 residencias privadas. La única playa Bandera Azul de Alagoas. Seis lagunas privadas de agua dulce. Finalización en febrero de 2029.</span>
+    </p>
     <div class="hero-acts rv d3">
-      <a href="#form-section" class="btn">Request the Buyer Confidence Pack <span class="btn-arr">→</span></a>
-      <span class="hero-note">Complimentary &nbsp;·&nbsp; For qualified buyers and professional advisors</span>
+      <a href="#form-section" class="btn">
+        <span data-lang="en">Request the Buyer Confidence Pack</span>
+        <span data-lang="pt">Solicitar o Guia do Comprador</span>
+        <span data-lang="es">Solicitar la Guía del Comprador</span>
+        <span class="btn-arr">→</span>
+      </a>
+      <span class="hero-note">
+        <span data-lang="en">Complimentary &nbsp;·&nbsp; For qualified buyers and professional advisors</span>
+        <span data-lang="pt">Gratuito &nbsp;·&nbsp; Para compradores qualificados e consultores profissionais</span>
+        <span data-lang="es">Gratuito &nbsp;·&nbsp; Para compradores cualificados y asesores profesionales</span>
+      </span>
     </div>
   </div>
   <div class="hero-scroll">
@@ -491,13 +564,52 @@ footer{background:#080806;padding:62px 48px 42px;
 <!-- S2 TRUST BAR -->
 <section id="trust-bar">
   <div class="trust-grid">
-    <div class="trust-item rv"><span class="t-num">€511K</span><span class="t-lbl">Entry price from</span></div>
-    <div class="trust-item rv d1"><span class="t-num">12%</span><span class="t-lbl">Annual property appreciation p.a.</span></div>
-    <div class="trust-item rv d2"><span class="t-num">27%</span><span class="t-lbl">Total annual return — Brazil's highest</span></div>
-    <div class="trust-item rv d3"><span class="t-num">89</span><span class="t-lbl">Private homes in total</span></div>
-    <div class="trust-item rv d4"><span class="t-num">100%</span><span class="t-lbl">NovaSan completion record · 350+ projects</span></div>
+    <div class="trust-item rv">
+      <span class="t-num">€511K</span>
+      <span class="t-lbl">
+        <span data-lang="en">Entry price from</span>
+        <span data-lang="pt">Preço de entrada a partir de</span>
+        <span data-lang="es">Precio de entrada desde</span>
+      </span>
+    </div>
+    <div class="trust-item rv d1">
+      <span class="t-num">12%</span>
+      <span class="t-lbl">
+        <span data-lang="en">Annual property appreciation p.a.</span>
+        <span data-lang="pt">Valorização imobiliária anual</span>
+        <span data-lang="es">Revalorización inmobiliaria anual</span>
+      </span>
+    </div>
+    <div class="trust-item rv d2">
+      <span class="t-num">27%</span>
+      <span class="t-lbl">
+        <span data-lang="en">Total annual return — Brazil's highest</span>
+        <span data-lang="pt">Retorno anual total — o mais alto do Brasil</span>
+        <span data-lang="es">Rentabilidad anual total — la más alta de Brasil</span>
+      </span>
+    </div>
+    <div class="trust-item rv d3">
+      <span class="t-num">89</span>
+      <span class="t-lbl">
+        <span data-lang="en">Private homes in total</span>
+        <span data-lang="pt">Residências privadas no total</span>
+        <span data-lang="es">Residencias privadas en total</span>
+      </span>
+    </div>
+    <div class="trust-item rv d4">
+      <span class="t-num">100%</span>
+      <span class="t-lbl">
+        <span data-lang="en">NovaSan completion record · 350+ projects</span>
+        <span data-lang="pt">Historial de conclusão NovaSan · 350+ projetos</span>
+        <span data-lang="es">Historial de finalización NovaSan · 350+ proyectos</span>
+      </span>
+    </div>
   </div>
-  <p class="trust-fn">Property appreciation &amp; total return: Referência Capital / CNN Money, May 2025 &nbsp;·&nbsp; Entry price at EUR/BRL 5.92, May 2026 &nbsp;·&nbsp; NovaSan Engenharia: 55 years, 350+ completed projects</p>
+  <p class="trust-fn">
+    <span data-lang="en">Property appreciation &amp; total return: Referência Capital / CNN Money, May 2025 &nbsp;·&nbsp; Entry price at EUR/BRL 5.92, May 2026 &nbsp;·&nbsp; NovaSan Engenharia: 55 years, 350+ completed projects</span>
+    <span data-lang="pt">Valorização e retorno total: Referência Capital / CNN Money, maio de 2025 &nbsp;·&nbsp; Preço de entrada a EUR/BRL 5,92, maio de 2026 &nbsp;·&nbsp; NovaSan Engenharia: 55 anos, 350+ projetos concluídos</span>
+    <span data-lang="es">Revalorización y rentabilidad total: Referência Capital / CNN Money, mayo 2025 &nbsp;·&nbsp; Precio de entrada a EUR/BRL 5,92, mayo 2026 &nbsp;·&nbsp; NovaSan Engenharia: 55 años, 350+ proyectos completados</span>
+  </p>
 </section>
 
 <!-- S3 DESTINATION -->
@@ -507,15 +619,56 @@ footer{background:#080806;padding:62px 48px 42px;
       <img src="images/destination.jpg" alt="Aerial view of Beach House with private lagoon, ENTREÁGUAS MILAGRES">
     </div>
     <div class="dest-text">
-      <span class="sl rv">The destination</span>
-      <h2 class="dest-h rv">The coastline Brazil's most discerning travellers have kept <em>to themselves</em>.</h2>
-      <p class="bp rv">Most Europeans haven't heard of São Miguel dos Milagres. Most Brazilians who matter have been going there for years. That gap is exactly where the value lives.</p>
-      <p class="bp rv d1">Milagres sits on the Costa dos Corais — the second largest coral reef system in the world — in the state of Alagoas. The water is warm, crystalline, and calm year-round. Natural tide pools form when the tide recedes. The Tatuamunha River is one of the few places in Brazil where you can still observe manatees in their natural habitat.</p>
-      <p class="bp rv d2">This is already where Brazil's ultra-wealthy spend New Year's Eve. Actress Glória Pires owns a compound here that rents for approximately R$8,000 per night. The destination is validated at the very highest level of Brazilian domestic demand. What it hasn't had is a structured access point for European buyers. That changes now.</p>
+      <span class="sl rv">
+        <span data-lang="en">The destination</span>
+        <span data-lang="pt">O destino</span>
+        <span data-lang="es">El destino</span>
+      </span>
+      <h2 class="dest-h rv">
+        <span data-lang="en">The coastline Brazil's most discerning travellers have kept <em>to themselves</em>.</span>
+        <span data-lang="pt">A costa que os viajantes mais exigentes do Brasil têm guardado <em>para si</em>.</span>
+        <span data-lang="es">La costa que los viajeros más selectos de Brasil han guardado <em>para ellos</em>.</span>
+      </h2>
+      <p class="bp rv">
+        <span data-lang="en">Most Europeans haven't heard of São Miguel dos Milagres. Most Brazilians who matter have been going there for years. That gap is exactly where the value lives.</span>
+        <span data-lang="pt">A maioria dos europeus nunca ouviu falar de São Miguel dos Milagres. A maioria dos brasileiros que importam vai lá há anos. Essa diferença é exatamente onde o valor reside.</span>
+        <span data-lang="es">La mayoría de los europeos nunca ha oído hablar de São Miguel dos Milagres. La mayoría de los brasileños que importan llevan años yendo allí. Esa brecha es exactamente donde reside el valor.</span>
+      </p>
+      <p class="bp rv d1">
+        <span data-lang="en">Milagres sits on the Costa dos Corais — the second largest coral reef system in the world — in the state of Alagoas. The water is warm, crystalline, and calm year-round. Natural tide pools form when the tide recedes. The Tatuamunha River is one of the few places in Brazil where you can still observe manatees in their natural habitat.</span>
+        <span data-lang="pt">Milagres fica na Costa dos Corais — o segundo maior sistema de recifes de coral do mundo — no estado de Alagoas. A água é quente, cristalina e calma durante todo o ano. Piscinas naturais formam-se quando a maré baixa. O Rio Tatuamunha é um dos poucos lugares no Brasil onde ainda se pode observar peixes-boi no seu habitat natural.</span>
+        <span data-lang="es">Milagres se encuentra en la Costa dos Corais — el segundo mayor sistema de arrecifes de coral del mundo — en el estado de Alagoas. El agua es cálida, cristalina y tranquila durante todo el año. Se forman piscinas naturales cuando baja la marea. El río Tatuamunha es uno de los pocos lugares en Brasil donde aún se puede observar manatíes en su hábitat natural.</span>
+      </p>
+      <p class="bp rv d2">
+        <span data-lang="en">This is already where Brazil's ultra-wealthy spend New Year's Eve. Actress Glória Pires owns a compound here that rents for approximately R$8,000 per night. The destination is validated at the very highest level of Brazilian domestic demand. What it hasn't had is a structured access point for European buyers. That changes now.</span>
+        <span data-lang="pt">É aqui que a elite brasileira passa o Réveillon. A atriz Glória Pires tem aqui um conjunto que arrenda por aproximadamente R$8.000 por noite. O destino está validado ao mais alto nível da procura doméstica brasileira. O que ainda não existia era um ponto de acesso estruturado para compradores europeus. Isso muda agora.</span>
+        <span data-lang="es">Es aquí donde la élite brasileña pasa la Nochevieja. La actriz Glória Pires tiene una propiedad aquí que se alquila por aproximadamente R$8.000 por noche. El destino está validado al más alto nivel de la demanda doméstica brasileña. Lo que no ha tenido hasta ahora es un punto de acceso estructurado para compradores europeos. Eso cambia ahora.</span>
+      </p>
       <div class="dest-stats rv d3">
-        <div class="ds"><span class="ds-n">65%</span><span class="ds-l">Foreign tourist growth<br>Jan–Feb 2025</span></div>
-        <div class="ds"><span class="ds-n">2nd</span><span class="ds-l">Largest coral reef<br>in the world</span></div>
-        <div class="ds"><span class="ds-n">25km</span><span class="ds-l">New international airport<br>under development</span></div>
+        <div class="ds">
+          <span class="ds-n">65%</span>
+          <span class="ds-l">
+            <span data-lang="en">Foreign tourist growth<br>Jan–Feb 2025</span>
+            <span data-lang="pt">Crescimento de turistas<br>jan–fev 2025</span>
+            <span data-lang="es">Crecimiento de turistas<br>ene–feb 2025</span>
+          </span>
+        </div>
+        <div class="ds">
+          <span class="ds-n">2nd</span>
+          <span class="ds-l">
+            <span data-lang="en">Largest coral reef<br>in the world</span>
+            <span data-lang="pt">Maior recife de coral<br>do mundo</span>
+            <span data-lang="es">Mayor arrecife de coral<br>del mundo</span>
+          </span>
+        </div>
+        <div class="ds">
+          <span class="ds-n">25km</span>
+          <span class="ds-l">
+            <span data-lang="en">New international airport<br>under development</span>
+            <span data-lang="pt">Novo aeroporto internacional<br>em desenvolvimento</span>
+            <span data-lang="es">Nuevo aeropuerto internacional<br>en desarrollo</span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -524,39 +677,61 @@ footer{background:#080806;padding:62px 48px 42px;
 <!-- S4 DEVELOPMENT -->
 <section id="development">
   <div class="dev-top">
-    <span class="sl rv" style="color:rgba(176,154,94,.6)">The development</span>
-    <h2 class="dev-h rv">ENTREÁGUAS MILAGRES<br><em>'Between the Waters'</em></h2>
+    <span class="sl rv" style="color:rgba(176,154,94,.6)">
+      <span data-lang="en">The development</span>
+      <span data-lang="pt">O empreendimento</span>
+      <span data-lang="es">El desarrollo</span>
+    </span>
+    <h2 class="dev-h rv">
+      <span data-lang="en">ENTREÁGUAS MILAGRES<br><em>'Between the Waters'</em></span>
+      <span data-lang="pt">ENTREÁGUAS MILAGRES<br><em>'Entre as Águas'</em></span>
+      <span data-lang="es">ENTREÁGUAS MILAGRES<br><em>'Entre las Aguas'</em></span>
+    </h2>
   </div>
-  <img src="images/dev-hero.jpg" alt="Aerial view of ENTREÁGUAS MILAGRES resort and private beach club on Patacho Beach" class="dev-hero-img rv">
+  <img src="images/dev-hero.jpg" alt="Aerial view of ENTREÁGUAS MILAGRES resort and private beach club" class="dev-hero-img rv">
   <div class="dev-body">
     <div>
-      <p class="dev-intro">A private resort of 89 homes on Patacho Beach — the only Blue Flag certified beach in Alagoas. Six private freshwater lagoons covering 17,000 m². A 5,000 m² beach club for residents exclusively.</p>
-      <p class="dev-p">This is not a generic resort finish. It is a development designed by people whose work you can independently verify — and built by a construction company with a 100% completion record across more than 350 projects.</p>
+      <p class="dev-intro">
+        <span data-lang="en">A private resort of 89 homes on Patacho Beach — the only Blue Flag certified beach in Alagoas. Six private freshwater lagoons covering 17,000 m². A 5,000 m² beach club for residents exclusively.</span>
+        <span data-lang="pt">Um resort privado de 89 residências na Praia do Patacho — a única praia Bandeira Azul de Alagoas. Seis lagoas privadas de água doce com 17.000 m². Um clube de praia privativo de 5.000 m² exclusivo para residentes.</span>
+        <span data-lang="es">Un resort privado de 89 residencias en la Playa del Patacho — la única playa Bandera Azul de Alagoas. Seis lagunas privadas de agua dulce de 17.000 m². Un club de playa privado de 5.000 m² exclusivo para residentes.</span>
+      </p>
+      <p class="dev-p">
+        <span data-lang="en">This is not a generic resort finish. It is a development designed by people whose work you can independently verify — and built by a construction company with a 100% completion record across more than 350 projects.</span>
+        <span data-lang="pt">Este não é um acabamento genérico de resort. É um empreendimento projetado por pessoas cujo trabalho pode ser verificado de forma independente — e construído por uma empresa com um historial de 100% de conclusão em mais de 350 projetos.</span>
+        <span data-lang="es">Este no es un acabado genérico de resort. Es un desarrollo diseñado por personas cuyo trabajo puede verificarse de forma independiente — y construido por una empresa con un historial de finalización del 100% en más de 350 proyectos.</span>
+      </p>
     </div>
     <div>
       <table class="spec-t">
-        <tr><td>Location</td><td>Patacho Beach, Porto de Pedras / São Miguel dos Milagres, Alagoas, Brazil</td></tr>
-        <tr><td>Land area</td><td>83,400 m²</td></tr>
-        <tr><td>Total homes</td><td>89 — 47 Beach House + 42 Beach Lake</td></tr>
-        <tr><td>Beach House</td><td>From 304 m² · 5 suites · private pool · 3 parking spaces</td></tr>
-        <tr><td>Beach Lake</td><td>From 212 m² · 4 suites · private pool · 2 parking spaces</td></tr>
-        <tr><td>Freshwater lagoons</td><td>6 lagoons · 17,000 m² · 1.3 km shoreline</td></tr>
-        <tr><td>Private beach club</td><td>5,000 m² on Patacho Beach — residents only</td></tr>
-        <tr><td>Completion</td><td>February 2029</td></tr>
-        <tr><td>Legal status</td><td>Incorporated · R-1, no. 5,648, Porto de Pedras/AL</td></tr>
+        <tr><td><span data-lang="en">Location</span><span data-lang="pt">Localização</span><span data-lang="es">Ubicación</span></td><td>Patacho Beach, Porto de Pedras / São Miguel dos Milagres, Alagoas, Brazil</td></tr>
+        <tr><td><span data-lang="en">Land area</span><span data-lang="pt">Área do terreno</span><span data-lang="es">Área del terreno</span></td><td>83,400 m²</td></tr>
+        <tr><td><span data-lang="en">Total homes</span><span data-lang="pt">Total de residências</span><span data-lang="es">Total de residencias</span></td><td>89 — 47 Beach House + 42 Beach Lake</td></tr>
+        <tr><td>Beach House</td><td><span data-lang="en">From 304 m² · 5 suites · private pool · 3 parking</span><span data-lang="pt">A partir de 304 m² · 5 suítes · piscina privativa · 3 estacionamentos</span><span data-lang="es">Desde 304 m² · 5 suites · piscina privada · 3 aparcamientos</span></td></tr>
+        <tr><td>Beach Lake</td><td><span data-lang="en">From 212 m² · 4 suites · private pool · 2 parking</span><span data-lang="pt">A partir de 212 m² · 4 suítes · piscina privativa · 2 estacionamentos</span><span data-lang="es">Desde 212 m² · 4 suites · piscina privada · 2 aparcamientos</span></td></tr>
+        <tr><td><span data-lang="en">Freshwater lagoons</span><span data-lang="pt">Lagoas de água doce</span><span data-lang="es">Lagunas de agua dulce</span></td><td>6 · 17,000 m² · 1.3 km</td></tr>
+        <tr><td><span data-lang="en">Beach club</span><span data-lang="pt">Clube de praia</span><span data-lang="es">Club de playa</span></td><td>5,000 m² — <span data-lang="en">residents only</span><span data-lang="pt">exclusivo para residentes</span><span data-lang="es">solo residentes</span></td></tr>
+        <tr><td><span data-lang="en">Completion</span><span data-lang="pt">Conclusão</span><span data-lang="es">Finalización</span></td><td><span data-lang="en">February 2029</span><span data-lang="pt">Fevereiro de 2029</span><span data-lang="es">Febrero de 2029</span></td></tr>
+        <tr><td><span data-lang="en">Legal status</span><span data-lang="pt">Estado jurídico</span><span data-lang="es">Estado legal</span></td><td><span data-lang="en">Incorporated · R-1, no. 5,648, Porto de Pedras/AL</span><span data-lang="pt">Incorporado · R-1, n.º 5.648, Porto de Pedras/AL</span><span data-lang="es">Incorporado · R-1, n.º 5.648, Porto de Pedras/AL</span></td></tr>
       </table>
     </div>
   </div>
-
-  <!-- Lagoon callout with real image background -->
   <div class="lagoon-wrap rv">
     <div class="lagoon-bg">
       <img src="images/lagoon-callout.jpg" alt="Beach House reflected in the private freshwater lagoon at golden hour">
     </div>
     <div class="lagoon-bg-ov"></div>
     <div class="lagoon-c">
-      <p class="lagoon-q">"Six private freshwater lagoons. 17,000 m² of swimmable, crystal-clear water. Built using proprietary Aqualar technology. Nothing comparable exists on the entire Costa dos Corais coastline."</p>
-      <p class="lagoon-sub">ENTREÁGUAS MILAGRES takes its name — Between the Waters — from its defining feature. Every home holds direct lagoon or ocean access. This is not a shared amenity at a distance. It is the landscape the entire development is built around.</p>
+      <p class="lagoon-q">
+        <span data-lang="en">"Six private freshwater lagoons. 17,000 m² of swimmable, crystal-clear water. Built using proprietary Aqualar technology. Nothing comparable exists on the entire Costa dos Corais coastline."</span>
+        <span data-lang="pt">"Seis lagoas privadas de água doce. 17.000 m² de água cristalina para nadar. Construídas com a tecnologia proprietária Aqualar. Nada comparável existe em toda a Costa dos Corais."</span>
+        <span data-lang="es">"Seis lagunas privadas de agua dulce. 17.000 m² de agua cristalina para nadar. Construidas con la tecnología propia Aqualar. Nada comparable existe en toda la Costa dos Corais."</span>
+      </p>
+      <p class="lagoon-sub">
+        <span data-lang="en">ENTREÁGUAS MILAGRES takes its name — Between the Waters — from its defining feature. Every home holds direct lagoon or ocean access. This is not a shared amenity at a distance. It is the landscape the entire development is built around.</span>
+        <span data-lang="pt">O ENTREÁGUAS MILAGRES tira o seu nome — Entre as Águas — da sua característica definidora. Cada residência tem acesso direto à lagoa ou ao oceano. Não é uma comodidade partilhada à distância. É a paisagem em torno da qual todo o empreendimento foi construído.</span>
+        <span data-lang="es">ENTREÁGUAS MILAGRES toma su nombre — Entre las Aguas — de su característica definitoria. Cada residencia tiene acceso directo a la laguna o al océano. No es una amenidad compartida a distancia. Es el paisaje alrededor del cual se construyó todo el desarrollo.</span>
+      </p>
     </div>
   </div>
 </section>
@@ -564,56 +739,33 @@ footer{background:#080806;padding:62px 48px 42px;
 <!-- GALLERY -->
 <div class="gallery-wrap">
   <div class="gallery-track" id="gallery">
-    <div class="gi">
-      <img src="images/gallery-1.jpg" alt="Varanda lounge terrace — ENTREÁGUAS MILAGRES resort">
-      <div class="g-cap"><span class="g-cap-t">Varanda lounge — resort terrace</span></div>
-    </div>
-    <div class="gi">
-      <img src="images/gallery-2.jpg" alt="Private beach club on Patacho Beach">
-      <div class="g-cap"><span class="g-cap-t">Private beach club — Patacho Beach</span></div>
-    </div>
-    <div class="gi">
-      <img src="images/gallery-3.jpg" alt="Lounge Entreáguas — resort pool deck">
-      <div class="g-cap"><span class="g-cap-t">Lounge Entreáguas — pool deck</span></div>
-    </div>
-    <div class="gi">
-      <img src="images/gallery-4.jpg" alt="Lounge Molhado — floating daybed in the lagoon">
-      <div class="g-cap"><span class="g-cap-t">Lounge Molhado — lagoon daybed</span></div>
-    </div>
-    <div class="gi">
-      <img src="images/gallery-5.jpg" alt="Beach House living room and kitchen with pool views">
-      <div class="g-cap"><span class="g-cap-t">Beach House — open-plan living</span></div>
-    </div>
-    <div class="gi">
-      <img src="images/gallery-6.jpg" alt="Beach Loft sala and veranda with private pool at dusk">
-      <div class="g-cap"><span class="g-cap-t">Beach Loft — veranda &amp; private pool</span></div>
-    </div>
+    <div class="gi"><img src="images/gallery-1.jpg" alt="Varanda lounge terrace"><div class="g-cap"><span class="g-cap-t"><span data-lang="en">Varanda lounge — resort terrace</span><span data-lang="pt">Varanda lounge — terraço do resort</span><span data-lang="es">Varanda lounge — terraza del resort</span></span></div></div>
+    <div class="gi"><img src="images/gallery-2.jpg" alt="Private beach club"><div class="g-cap"><span class="g-cap-t"><span data-lang="en">Private beach club — Patacho Beach</span><span data-lang="pt">Clube de praia privativo — Praia do Patacho</span><span data-lang="es">Club de playa privado — Playa del Patacho</span></span></div></div>
+    <div class="gi"><img src="images/gallery-3.jpg" alt="Lounge pool deck"><div class="g-cap"><span class="g-cap-t"><span data-lang="en">Lounge Entreáguas — pool deck</span><span data-lang="pt">Lounge Entreáguas — deck da piscina</span><span data-lang="es">Lounge Entreáguas — deck de la piscina</span></span></div></div>
+    <div class="gi"><img src="images/gallery-4.jpg" alt="Floating daybed lagoon"><div class="g-cap"><span class="g-cap-t"><span data-lang="en">Lounge Molhado — lagoon daybed</span><span data-lang="pt">Lounge Molhado — cama flutuante na lagoa</span><span data-lang="es">Lounge Molhado — cama flotante en la laguna</span></span></div></div>
+    <div class="gi"><img src="images/gallery-5.jpg" alt="Beach House living room"><div class="g-cap"><span class="g-cap-t"><span data-lang="en">Beach House — open-plan living</span><span data-lang="pt">Beach House — sala de estar em open space</span><span data-lang="es">Beach House — salón de planta abierta</span></span></div></div>
+    <div class="gi"><img src="images/gallery-6.jpg" alt="Beach Loft veranda pool"><div class="g-cap"><span class="g-cap-t"><span data-lang="en">Beach Loft — veranda &amp; private pool</span><span data-lang="pt">Beach Loft — varanda e piscina privativa</span><span data-lang="es">Beach Loft — terraza y piscina privada</span></span></div></div>
   </div>
   <div class="g-dots" id="gdots">
-    <button class="gd on" data-i="0"></button>
-    <button class="gd" data-i="1"></button>
-    <button class="gd" data-i="2"></button>
-    <button class="gd" data-i="3"></button>
-    <button class="gd" data-i="4"></button>
-    <button class="gd" data-i="5"></button>
+    <button class="gd on" data-i="0"></button><button class="gd" data-i="1"></button>
+    <button class="gd" data-i="2"></button><button class="gd" data-i="3"></button>
+    <button class="gd" data-i="4"></button><button class="gd" data-i="5"></button>
   </div>
   <div class="amenities-row">
-    <span class="am-lbl">Resort amenities</span>
+    <span class="am-lbl"><span data-lang="en">Resort amenities</span><span data-lang="pt">Comodidades do resort</span><span data-lang="es">Servicios del resort</span></span>
     <ul class="am-list">
-      <li>Full-service beach club &amp; restaurant</li>
-      <li>Spa &amp; wellness centre</li>
-      <li>Gym with ocean views</li>
-      <li>Teen &amp; children's facilities</li>
-      <li>Wedding venue — waterfront setting</li>
-      <li>EV charging infrastructure</li>
-      <li>24h smart security &amp; facial recognition</li>
-      <li>Golf partnership</li>
-      <li>Helipad access</li>
-      <li>Smart home infrastructure</li>
-      <li>Bilingual concierge</li>
-      <li>Remote check-in / check-out</li>
-      <li>Viva ENTREÁGUAS activity calendar</li>
-      <li>Private chef on demand</li>
+      <li><span data-lang="en">Full-service beach club &amp; restaurant</span><span data-lang="pt">Clube de praia &amp; restaurante</span><span data-lang="es">Club de playa &amp; restaurante</span></li>
+      <li><span data-lang="en">Spa &amp; wellness centre</span><span data-lang="pt">Spa &amp; centro de bem-estar</span><span data-lang="es">Spa &amp; centro de bienestar</span></li>
+      <li><span data-lang="en">Gym with ocean views</span><span data-lang="pt">Ginásio com vista para o oceano</span><span data-lang="es">Gimnasio con vistas al océano</span></li>
+      <li><span data-lang="en">Teen &amp; children's facilities</span><span data-lang="pt">Instalações para jovens e crianças</span><span data-lang="es">Instalaciones para jóvenes y niños</span></li>
+      <li><span data-lang="en">Wedding venue — waterfront</span><span data-lang="pt">Espaço para casamentos — frente de mar</span><span data-lang="es">Espacio para bodas — frente al mar</span></li>
+      <li><span data-lang="en">EV charging infrastructure</span><span data-lang="pt">Infraestrutura de carregamento elétrico</span><span data-lang="es">Infraestructura de carga eléctrica</span></li>
+      <li><span data-lang="en">24h smart security &amp; facial recognition</span><span data-lang="pt">Segurança inteligente 24h &amp; reconhecimento facial</span><span data-lang="es">Seguridad inteligente 24h &amp; reconocimiento facial</span></li>
+      <li><span data-lang="en">Golf partnership</span><span data-lang="pt">Parceria de golfe</span><span data-lang="es">Convenio de golf</span></li>
+      <li><span data-lang="en">Helipad access</span><span data-lang="pt">Acesso a heliporto</span><span data-lang="es">Acceso a helipuerto</span></li>
+      <li><span data-lang="en">Smart home infrastructure</span><span data-lang="pt">Infraestrutura de casa inteligente</span><span data-lang="es">Infraestructura domótica</span></li>
+      <li><span data-lang="en">Bilingual concierge</span><span data-lang="pt">Concierge bilingue</span><span data-lang="es">Conserjería bilingüe</span></li>
+      <li><span data-lang="en">Viva ENTREÁGUAS activity calendar</span><span data-lang="pt">Calendário de atividades Viva ENTREÁGUAS</span><span data-lang="es">Calendario de actividades Viva ENTREÁGUAS</span></li>
     </ul>
   </div>
 </div>
@@ -622,61 +774,62 @@ footer{background:#080806;padding:62px 48px 42px;
 <section id="investment">
   <div class="si">
     <div class="inv-intro">
-      <span class="sl rv">The investment case</span>
-      <h2 class="inv-h rv">The numbers are independently verified. Here they are.</h2>
-      <p class="rv">São Miguel dos Milagres has been identified by Referência Capital as the single most profitable destination for short-stay rental investment in Brazil. Every figure below is attributed to its source. We do not present developer projections as market data.</p>
+      <span class="sl rv"><span data-lang="en">The investment case</span><span data-lang="pt">O caso de investimento</span><span data-lang="es">El argumento de inversión</span></span>
+      <h2 class="inv-h rv"><span data-lang="en">The numbers are independently verified. Here they are.</span><span data-lang="pt">Os números são verificados de forma independente. Aqui estão.</span><span data-lang="es">Los números están verificados de forma independiente. Aquí están.</span></h2>
+      <p class="rv"><span data-lang="en">São Miguel dos Milagres has been identified by Referência Capital as the single most profitable destination for short-stay rental investment in Brazil. Every figure below is attributed to its source. We do not present developer projections as market data.</span><span data-lang="pt">São Miguel dos Milagres foi identificado pela Referência Capital como o destino mais rentável para investimento em arrendamento de curta duração no Brasil. Cada valor abaixo é atribuído à sua fonte. Não apresentamos projeções do promotor como dados de mercado.</span><span data-lang="es">São Miguel dos Milagres ha sido identificado por Referência Capital como el destino más rentable para la inversión en alquiler de corta estancia en Brasil. Cada cifra que aparece a continuación está atribuida a su fuente. No presentamos proyecciones del promotor como datos de mercado.</span></p>
     </div>
     <div class="stats4 rv">
-      <div class="sc4"><span class="sn">12%</span><p class="sd">Annual property appreciation p.a.</p><p class="ss">Referência Capital / CNN Money, May 2025</p></div>
-      <div class="sc4"><span class="sn">27%</span><p class="sd">Total annual return — Brazil's highest</p><p class="ss">Referência Capital / CNN Money, May 2025</p></div>
-      <div class="sc4"><span class="sn">40.49%</span><p class="sd">Projected value increase over 36 months</p><p class="ss">ENINOVA Modelo Lucxo, 12% p.a.</p></div>
-      <div class="sc4"><span class="sn">#1</span><p class="sd">Most profitable short-stay rental market in Brazil</p><p class="ss">Referência Capital, 2025</p></div>
+      <div class="sc4"><span class="sn">12%</span><p class="sd"><span data-lang="en">Annual property appreciation p.a.</span><span data-lang="pt">Valorização imobiliária anual</span><span data-lang="es">Revalorización inmobiliaria anual</span></p><p class="ss">Referência Capital / CNN Money, May 2025</p></div>
+      <div class="sc4"><span class="sn">27%</span><p class="sd"><span data-lang="en">Total annual return — Brazil's highest</span><span data-lang="pt">Retorno anual total — o mais alto do Brasil</span><span data-lang="es">Rentabilidad anual total — la más alta de Brasil</span></p><p class="ss">Referência Capital / CNN Money, May 2025</p></div>
+      <div class="sc4"><span class="sn">40.49%</span><p class="sd"><span data-lang="en">Projected value increase over 36 months</span><span data-lang="pt">Valorização projetada ao longo de 36 meses</span><span data-lang="es">Incremento de valor proyectado en 36 meses</span></p><p class="ss">ENINOVA Modelo Lucxo, 12% p.a.</p></div>
+      <div class="sc4"><span class="sn">#1</span><p class="sd"><span data-lang="en">Most profitable short-stay rental market in Brazil</span><span data-lang="pt">Mercado de arrendamento mais rentável do Brasil</span><span data-lang="es">Mercado de alquiler vacacional más rentable de Brasil</span></p><p class="ss">Referência Capital, 2025</p></div>
     </div>
     <div class="rtw rv">
-      <span class="t-lbl2">What a 304 m² Beach House generates — ENINOVA Modelo Lucxo</span>
+      <span class="t-lbl2"><span data-lang="en">What a 304 m² Beach House generates — ENINOVA Modelo Lucxo</span><span data-lang="pt">O que uma Beach House de 304 m² gera — ENINOVA Modelo Lucxo</span><span data-lang="es">Lo que genera una Beach House de 304 m² — ENINOVA Modelo Lucxo</span></span>
       <table class="rt">
-        <thead><tr><th>Metric</th><th>55% occupancy</th><th>70% occupancy</th></tr></thead>
+        <thead><tr>
+          <th><span data-lang="en">Metric</span><span data-lang="pt">Métrica</span><span data-lang="es">Métrica</span></th>
+          <th><span data-lang="en">55% occupancy</span><span data-lang="pt">55% ocupação</span><span data-lang="es">55% ocupación</span></th>
+          <th><span data-lang="en">70% occupancy</span><span data-lang="pt">70% ocupação</span><span data-lang="es">70% ocupación</span></th>
+        </tr></thead>
         <tbody>
-          <tr><td>Nights sold (of 30)</td><td>17</td><td>21</td></tr>
-          <tr><td>Average daily rate</td><td>R$4,900 (≈€828)</td><td>R$4,900 (≈€828)</td></tr>
-          <tr><td>Gross monthly revenue</td><td>R$80,850 (≈€13,650)</td><td>R$102,900 (≈€17,380)</td></tr>
-          <tr class="hl"><td>Net monthly profit (before tax)</td><td>R$45,873 (≈€7,750)</td><td>R$59,802 (≈€10,100)</td></tr>
-          <tr class="hl"><td>Monthly return on purchase price</td><td>1.04%</td><td>1.35%</td></tr>
-          <tr class="hl"><td>Annualised net yield</td><td>12.5%</td><td>16.2%</td></tr>
+          <tr><td><span data-lang="en">Nights sold (of 30)</span><span data-lang="pt">Noites vendidas (de 30)</span><span data-lang="es">Noches vendidas (de 30)</span></td><td>17</td><td>21</td></tr>
+          <tr><td><span data-lang="en">Average daily rate</span><span data-lang="pt">Diária média</span><span data-lang="es">Tarifa diaria media</span></td><td>R$4,900 (≈€828)</td><td>R$4,900 (≈€828)</td></tr>
+          <tr><td><span data-lang="en">Gross monthly revenue</span><span data-lang="pt">Receita bruta mensal</span><span data-lang="es">Ingresos brutos mensuales</span></td><td>R$80,850 (≈€13,650)</td><td>R$102,900 (≈€17,380)</td></tr>
+          <tr class="hl"><td><span data-lang="en">Net monthly profit (before tax)</span><span data-lang="pt">Lucro mensal líquido (antes de IR)</span><span data-lang="es">Beneficio mensual neto (antes de impuestos)</span></td><td>R$45,873 (≈€7,750)</td><td>R$59,802 (≈€10,100)</td></tr>
+          <tr class="hl"><td><span data-lang="en">Monthly return on purchase price</span><span data-lang="pt">Retorno mensal sobre o preço de compra</span><span data-lang="es">Rentabilidad mensual sobre el precio de compra</span></td><td>1.04%</td><td>1.35%</td></tr>
+          <tr class="hl"><td><span data-lang="en">Annualised net yield</span><span data-lang="pt">Rendimento líquido anualizado</span><span data-lang="es">Rendimiento neto anualizado</span></td><td>12.5%</td><td>16.2%</td></tr>
         </tbody>
       </table>
-      <p class="tfn">Net of all operating costs including distribution (12%), management (15%), condominium, IPTU, energy, cleaning, and laundry. Before Brazilian income tax (IRRF 15% for non-residents, deducted at source). EUR figures at R$5.92 = €1 (May 2026). Source: ENINOVA Modelo Lucxo, 2025. Projected figures — not guaranteed returns.</p>
+      <p class="tfn"><span data-lang="en">Net of all operating costs including distribution (12%), management (15%), condominium, IPTU, energy, cleaning, and laundry. Before Brazilian income tax (IRRF 15% for non-residents, deducted at source). EUR figures at R$5.92 = €1 (May 2026). Source: ENINOVA Modelo Lucxo, 2025. Projected figures — not guaranteed returns.</span><span data-lang="pt">Líquido de todos os custos operacionais incluindo distribuição (12%), gestão (15%), condomínio, IPTU, energia, limpeza e lavandaria. Antes do imposto de renda brasileiro (IRRF 15% para não residentes, deduzido na fonte). EUR a R$5,92 = €1 (maio de 2026). Fonte: ENINOVA Modelo Lucxo, 2025. Valores projetados — não são retornos garantidos.</span><span data-lang="es">Neto de todos los costes operativos incluida la distribución (12%), gestión (15%), comunidad, IPTU, energía, limpieza y lavandería. Antes del impuesto sobre la renta brasileño (IRRF 15% para no residentes, deducido en origen). EUR a R$5,92 = €1 (mayo 2026). Fuente: ENINOVA Modelo Lucxo, 2025. Cifras proyectadas — no son rentabilidades garantizadas.</span></p>
     </div>
     <div class="appr rv">
       <div class="appr-l">
-        <span class="appr-lbl">36-month capital appreciation — Beach House</span>
-        <div class="appr-nums">
-          <span class="appr-from">€745K</span>
-          <span class="appr-arr">→</span>
-          <span class="appr-to">≈€1,047K</span>
-        </div>
-        <p class="appr-gain">Projected gain of ≈€302,000 &nbsp;·&nbsp; 40.49% increase</p>
+        <span class="appr-lbl"><span data-lang="en">36-month capital appreciation — Beach House</span><span data-lang="pt">Valorização do capital em 36 meses — Beach House</span><span data-lang="es">Revalorización del capital en 36 meses — Beach House</span></span>
+        <div class="appr-nums"><span class="appr-from">€745K</span><span class="appr-arr">→</span><span class="appr-to">≈€1,047K</span></div>
+        <p class="appr-gain"><span data-lang="en">Projected gain of ≈€302,000 &nbsp;·&nbsp; 40.49% increase</span><span data-lang="pt">Ganho projetado de ≈€302.000 &nbsp;·&nbsp; Aumento de 40,49%</span><span data-lang="es">Ganancia proyectada de ≈€302.000 &nbsp;·&nbsp; Incremento del 40,49%</span></p>
       </div>
-      <div class="appr-r">
-        <p>Based on the 12% annual appreciation rate independently verified for São Miguel dos Milagres by Referência Capital (CNN Money, May 2025). EUR figures at R$5.92 = €1. Projected figure — not a guaranteed return. Actual EUR value depends on the prevailing EUR/BRL exchange rate at time of sale.</p>
-      </div>
+      <div class="appr-r"><p><span data-lang="en">Based on the 12% annual appreciation rate independently verified for São Miguel dos Milagres by Referência Capital (CNN Money, May 2025). EUR figures at R$5.92 = €1. Projected figure — not a guaranteed return. Actual EUR value depends on the prevailing EUR/BRL exchange rate at time of sale.</span><span data-lang="pt">Com base na taxa de valorização anual de 12% verificada de forma independente para São Miguel dos Milagres pela Referência Capital (CNN Money, maio de 2025). EUR a R$5,92 = €1. Valor projetado — não é um retorno garantido. O valor real em EUR depende da taxa de câmbio EUR/BRL vigente no momento da venda.</span><span data-lang="es">Basado en la tasa de revalorización anual del 12% verificada de forma independiente para São Miguel dos Milagres por Referência Capital (CNN Money, mayo de 2025). EUR a R$5,92 = €1. Cifra proyectada — no es una rentabilidad garantizada. El valor real en EUR depende del tipo de cambio EUR/BRL vigente en el momento de la venta.</span></p></div>
     </div>
     <div class="paybar rv">
-      <span class="pay-lbl">Payment structure</span>
+      <span class="pay-lbl"><span data-lang="en">Payment structure</span><span data-lang="pt">Estrutura de pagamento</span><span data-lang="es">Estructura de pago</span></span>
       <div class="pay-steps">
-        <span class="ps">20% on contract</span><span class="pd">·</span>
-        <span class="ps">42 monthly instalments</span><span class="pd">·</span>
-        <span class="ps">6 semi-annual payments</span><span class="pd">·</span>
-        <span class="ps">30% balance on completion</span>
+        <span class="ps"><span data-lang="en">20% on contract</span><span data-lang="pt">20% na assinatura</span><span data-lang="es">20% en contrato</span></span>
+        <span class="pd">·</span>
+        <span class="ps"><span data-lang="en">42 monthly instalments</span><span data-lang="pt">42 prestações mensais</span><span data-lang="es">42 cuotas mensuales</span></span>
+        <span class="pd">·</span>
+        <span class="ps"><span data-lang="en">6 semi-annual payments</span><span data-lang="pt">6 pagamentos semestrais</span><span data-lang="es">6 pagos semestrales</span></span>
+        <span class="pd">·</span>
+        <span class="ps"><span data-lang="en">30% balance on completion</span><span data-lang="pt">30% de saldo na conclusão</span><span data-lang="es">30% de saldo en la entrega</span></span>
       </div>
-      <span class="pc">Completion February 2029</span>
+      <span class="pc"><span data-lang="en">Completion February 2029</span><span data-lang="pt">Conclusão fevereiro de 2029</span><span data-lang="es">Finalización febrero de 2029</span></span>
     </div>
     <div class="mid-cta rv">
       <div>
-        <h3>Ready to review the full investment documentation?</h3>
-        <p>The Buyer Confidence Pack covers the complete legal structure for EU nationals, FX mechanics, the full ENINOVA rental model, acquisition costs, and tax considerations. Delivered immediately on submission.</p>
+        <h3><span data-lang="en">Ready to review the full investment documentation?</span><span data-lang="pt">Pronto para rever a documentação completa de investimento?</span><span data-lang="es">¿Listo para revisar la documentación completa de inversión?</span></h3>
+        <p><span data-lang="en">The Buyer Confidence Pack covers the complete legal structure for EU nationals, FX mechanics, the full ENINOVA rental model, acquisition costs, and tax considerations. Delivered immediately on submission.</span><span data-lang="pt">O Guia do Comprador cobre a estrutura jurídica completa para cidadãos europeus, a mecânica cambial, o modelo de arrendamento ENINOVA completo, custos de aquisição e considerações fiscais. Entregue imediatamente após submissão.</span><span data-lang="es">La Guía del Comprador cubre la estructura legal completa para ciudadanos europeos, la mecánica de divisas, el modelo de alquiler ENINOVA completo, costes de adquisición y consideraciones fiscales. Entregada inmediatamente tras el envío.</span></p>
       </div>
-      <a href="#form-section" class="btn">Request the Buyer Confidence Pack <span class="btn-arr">→</span></a>
+      <a href="#form-section" class="btn"><span data-lang="en">Request the Buyer Confidence Pack</span><span data-lang="pt">Solicitar o Guia do Comprador</span><span data-lang="es">Solicitar la Guía del Comprador</span> <span class="btn-arr">→</span></a>
     </div>
   </div>
 </section>
@@ -684,27 +837,30 @@ footer{background:#080806;padding:62px 48px 42px;
 <!-- S6 LEGAL -->
 <section id="legal">
   <div class="si">
-    <span class="sl rv">How European buyers own this</span>
-    <h2 class="legal-h rv">You own it outright. Here is how.</h2>
+    <span class="sl rv"><span data-lang="en">How European buyers own this</span><span data-lang="pt">Como os compradores europeus detêm este imóvel</span><span data-lang="es">Cómo los compradores europeos son propietarios</span></span>
+    <h2 class="legal-h rv"><span data-lang="en">You own it outright. Here is how.</span><span data-lang="pt">É proprietário pleno. Eis como.</span><span data-lang="es">Es suyo por completo. Así es como funciona.</span></h2>
     <div class="legal3 rv">
       <div class="lc">
         <span class="lc-ico">◈</span>
-        <h3 class="lc-h">Full foreign ownership</h3>
-        <p class="lc-p">Brazil permits direct property ownership by foreign nationals — no restrictions on non-residents. Protected under Brazilian civil law and constitutional property rights. A European buyer holds exactly the same ownership rights as a Brazilian buyer.</p>
+        <h3 class="lc-h"><span data-lang="en">Full foreign ownership</span><span data-lang="pt">Propriedade estrangeira plena</span><span data-lang="es">Propiedad extranjera plena</span></h3>
+        <p class="lc-p"><span data-lang="en">Brazil permits direct property ownership by foreign nationals — no restrictions on non-residents. Protected under Brazilian civil law and constitutional property rights. A European buyer holds exactly the same ownership rights as a Brazilian buyer.</span><span data-lang="pt">O Brasil permite a propriedade direta de imóveis por estrangeiros — sem restrições para não residentes. Protegido pela lei civil brasileira e pelos direitos de propriedade constitucionais. Um comprador europeu detém exatamente os mesmos direitos de propriedade que um comprador brasileiro.</span><span data-lang="es">Brasil permite la propiedad directa de inmuebles por extranjeros — sin restricciones para no residentes. Protegido por la ley civil brasileña y los derechos constitucionales de propiedad. Un comprador europeo tiene exactamente los mismos derechos de propiedad que un comprador brasileño.</span></p>
       </div>
       <div class="lc">
         <span class="lc-ico">◈</span>
-        <h3 class="lc-h">Freehold equivalent</h3>
-        <p class="lc-p">Brazilian property law uses <em>plena propriedade</em> — full ownership — recorded via <em>escritura pública</em> (public deed) at the local <em>cartório</em>. Absolute, transferable, and inheritable. The functional equivalent of freehold title in any European jurisdiction.</p>
+        <h3 class="lc-h"><span data-lang="en">Freehold equivalent</span><span data-lang="pt">Equivalente a plena propriedade</span><span data-lang="es">Equivalente a plena propiedad</span></h3>
+        <p class="lc-p"><span data-lang="en">Brazilian property law uses <em>plena propriedade</em> — full ownership — recorded via <em>escritura pública</em> at the local <em>cartório</em>. Absolute, transferable, and inheritable. The functional equivalent of freehold.</span><span data-lang="pt">O direito imobiliário brasileiro usa a <em>plena propriedade</em> — propriedade total — registada através de <em>escritura pública</em> no <em>cartório</em> local. Absoluta, transmissível e hereditária. O equivalente funcional da plena propriedade.</span><span data-lang="es">El derecho inmobiliario brasileño utiliza la <em>plena propriedade</em> — propiedad total — registrada mediante <em>escritura pública</em> en el <em>cartório</em> local. Absoluta, transferible y hereditaria. El equivalente funcional de la plena propiedad.</span></p>
       </div>
       <div class="lc">
         <span class="lc-ico">◈</span>
-        <h3 class="lc-h">Legally incorporated development</h3>
-        <p class="lc-p">ENTREÁGUAS MILAGRES is a confirmed, legally registered development. Real Estate Incorporation Registry: R-1, registration no. 5,648, Porto de Pedras/AL. Not a pre-registration concept — the legal foundation is in place and independently verifiable.</p>
+        <h3 class="lc-h"><span data-lang="en">Legally incorporated development</span><span data-lang="pt">Empreendimento legalmente incorporado</span><span data-lang="es">Desarrollo legalmente incorporado</span></h3>
+        <p class="lc-p"><span data-lang="en">ENTREÁGUAS MILAGRES is a confirmed, legally registered development. Real Estate Incorporation Registry: R-1, registration no. 5,648, Porto de Pedras/AL. Not a pre-registration concept — the legal foundation is in place.</span><span data-lang="pt">O ENTREÁGUAS MILAGRES é um empreendimento confirmado e legalmente registado. Registo de Incorporação Imobiliária: R-1, n.º de registo 5.648, Porto de Pedras/AL. Não é um conceito de pré-registo — a base jurídica está estabelecida.</span><span data-lang="es">ENTREÁGUAS MILAGRES es un desarrollo confirmado y legalmente registrado. Registro de Incorporación Inmobiliaria: R-1, n.º de registro 5.648, Porto de Pedras/AL. No es un concepto de pre-registro — la base legal está establecida.</span></p>
       </div>
     </div>
     <div class="legal-note rv">
-      <strong>On independent representation:</strong> Every buyer should retain an independent Brazilian lawyer — separate from the developer's team — to conduct title due diligence, review the purchase contract, and manage BACEN registration for capital repatriation. PLC can facilitate introductions to qualified independent counsel. The Buyer Confidence Pack covers the full legal ownership framework and financial transaction mechanics in plain English.
+      <strong><span data-lang="en">On independent representation:</span><span data-lang="pt">Sobre representação independente:</span><span data-lang="es">Sobre representación independiente:</span></strong>
+      <span data-lang="en"> Every buyer should retain an independent Brazilian lawyer to conduct title due diligence, review the purchase contract, and manage BACEN registration for capital repatriation. PLC can facilitate introductions to qualified independent counsel. The Buyer Confidence Pack covers the full legal ownership framework in plain English.</span>
+      <span data-lang="pt"> Cada comprador deve contratar um advogado brasileiro independente para realizar a due diligence do título, rever o contrato de compra e gerir o registo BACEN para repatriação de capital. A PLC pode facilitar apresentações a advogados independentes qualificados. O Guia do Comprador cobre a estrutura jurídica completa em linguagem simples.</span>
+      <span data-lang="es"> Cada comprador debe contratar a un abogado brasileño independiente para realizar la diligencia debida del título, revisar el contrato de compra y gestionar el registro BACEN para la repatriación de capital. PLC puede facilitar presentaciones a asesores legales independientes cualificados. La Guía del Comprador cubre el marco legal completo en lenguaje sencillo.</span>
     </div>
   </div>
 </section>
@@ -712,34 +868,34 @@ footer{background:#080806;padding:62px 48px 42px;
 <!-- S7 TEAM -->
 <section id="team">
   <div class="si">
-    <span class="sl rv" style="color:rgba(176,154,94,.52)">The team</span>
-    <h2 class="team-h rv">Designed and built by people whose work you can independently verify.</h2>
+    <span class="sl rv" style="color:rgba(176,154,94,.52)"><span data-lang="en">The team</span><span data-lang="pt">A equipa</span><span data-lang="es">El equipo</span></span>
+    <h2 class="team-h rv"><span data-lang="en">Designed and built by people whose work you can independently verify.</span><span data-lang="pt">Projetado e construído por pessoas cujo trabalho pode verificar de forma independente.</span><span data-lang="es">Diseñado y construido por personas cuyo trabajo puede verificar de forma independiente.</span></h2>
     <div class="team4 rv">
       <div class="tc">
-        <span class="tc-role">Developer</span>
+        <span class="tc-role"><span data-lang="en">Developer</span><span data-lang="pt">Promotor</span><span data-lang="es">Promotor</span></span>
         <h3 class="tc-n">Adamo Desenvolvimento Imobiliário</h3>
-        <p class="tc-b">Backed by a group with over 40 years of infrastructure and civil construction experience. Operates the Instituto Milagres, a community development programme serving over 2,000 people across Alagoas and São Paulo.</p>
+        <p class="tc-b"><span data-lang="en">Backed by a group with over 40 years of infrastructure and civil construction experience. Operates the Instituto Milagres, a community programme serving over 2,000 people across Alagoas and São Paulo.</span><span data-lang="pt">Apoiado por um grupo com mais de 40 anos de experiência em infraestruturas e construção civil. Opera o Instituto Milagres, um programa comunitário que serve mais de 2.000 pessoas em Alagoas e São Paulo.</span><span data-lang="es">Respaldado por un grupo con más de 40 años de experiencia en infraestructuras y construcción civil. Opera el Instituto Milagres, un programa comunitario que sirve a más de 2.000 personas en Alagoas y São Paulo.</span></p>
       </div>
       <div class="tc">
-        <span class="tc-role">Construction</span>
+        <span class="tc-role"><span data-lang="en">Construction</span><span data-lang="pt">Construção</span><span data-lang="es">Construcción</span></span>
         <h3 class="tc-n">NovaSan Engenharia</h3>
-        <p class="tc-b">55 years of industry experience. Over 350 completed projects — 100% completion record, not a single abandoned project. Clients include Petrobras, Sabesp, Braskem, and the Brazilian Navy.</p>
-        <p class="tc-hl">100% completion record · 350+ projects</p>
+        <p class="tc-b"><span data-lang="en">55 years of industry experience. Over 350 completed projects — 100% completion record. Clients include Petrobras, Sabesp, Braskem, and the Brazilian Navy.</span><span data-lang="pt">55 anos de experiência no setor. Mais de 350 projetos concluídos — historial de 100% de conclusão. Clientes incluem Petrobras, Sabesp, Braskem e a Marinha do Brasil.</span><span data-lang="es">55 años de experiencia en el sector. Más de 350 proyectos completados — historial de finalización del 100%. Clientes incluyen Petrobras, Sabesp, Braskem y la Armada de Brasil.</span></p>
+        <p class="tc-hl"><span data-lang="en">100% completion record · 350+ projects</span><span data-lang="pt">100% de conclusão · 350+ projetos</span><span data-lang="es">100% de finalización · 350+ proyectos</span></p>
       </div>
       <div class="tc">
-        <span class="tc-role">Landscape Architecture</span>
+        <span class="tc-role"><span data-lang="en">Landscape Architecture</span><span data-lang="pt">Arquitetura Paisagística</span><span data-lang="es">Arquitectura Paisajística</span></span>
         <h3 class="tc-n">Benedito Abbud</h3>
-        <p class="tc-b">A 48-year career spanning more than 6,000 landscape projects internationally. Projects include the 2014 FIFA World Cup facilities and the 2016 Rio Olympic Games.</p>
+        <p class="tc-b"><span data-lang="en">A 48-year career spanning more than 6,000 landscape projects internationally. Projects include the 2014 FIFA World Cup and the 2016 Rio Olympic Games.</span><span data-lang="pt">Uma carreira de 48 anos abrangendo mais de 6.000 projetos de paisagismo internacionalmente. Projetos incluem a Copa do Mundo FIFA 2014 e os Jogos Olímpicos do Rio 2016.</span><span data-lang="es">Una carrera de 48 años que abarca más de 6.000 proyectos de paisajismo a nivel internacional. Los proyectos incluyen la Copa Mundial FIFA 2014 y los Juegos Olímpicos de Río 2016.</span></p>
         <p class="tc-hl">2014 World Cup &nbsp;·&nbsp; 2016 Rio Olympics</p>
       </div>
       <div class="tc">
-        <span class="tc-role">Rental Management</span>
+        <span class="tc-role"><span data-lang="en">Rental Management</span><span data-lang="pt">Gestão de Arrendamento</span><span data-lang="es">Gestión de Alquiler</span></span>
         <h3 class="tc-n">ENINOVA Hotels Experience</h3>
-        <p class="tc-b">20 years of luxury hospitality expertise. 10 years of proven regional track record. Full hotel services from day one — bilingual concierge, remote check-in, Viva ENTREÁGUAS activity calendar.</p>
-        <p class="tc-hl">Confirmed daily rate: R$4,900 (≈€828)</p>
+        <p class="tc-b"><span data-lang="en">20 years of luxury hospitality expertise. 10 years of proven regional track record. Full hotel services from day one — bilingual concierge, remote check-in, activity calendar.</span><span data-lang="pt">20 anos de experiência em hotelaria de luxo. 10 anos de historial regional comprovado. Serviços hoteleiros completos desde o primeiro dia — concierge bilingue, check-in remoto, calendário de atividades.</span><span data-lang="es">20 años de experiencia en hotelería de lujo. 10 años de historial regional demostrado. Servicios hoteleros completos desde el primer día — conserjería bilingüe, check-in remoto, calendario de actividades.</span></p>
+        <p class="tc-hl"><span data-lang="en">Confirmed daily rate: R$4,900 (≈€828)</span><span data-lang="pt">Diária confirmada: R$4.900 (≈€828)</span><span data-lang="es">Tarifa diaria confirmada: R$4.900 (≈€828)</span></p>
       </div>
     </div>
-    <p class="team-fn rv">Architecture by Marcelo Franco (Makena Hotel, Carmel Taíba). Interiors by Milena Holanda. Creative curation by Martha Medeiros — an Alagoas native whose work is rooted in the cultural identity and natural soul of the region.</p>
+    <p class="team-fn rv"><span data-lang="en">Architecture by Marcelo Franco (Makena Hotel, Carmel Taíba). Interiors by Milena Holanda. Creative curation by Martha Medeiros — an Alagoas native whose work is rooted in the cultural identity and natural soul of the region.</span><span data-lang="pt">Arquitetura por Marcelo Franco (Makena Hotel, Carmel Taíba). Interiores por Milena Holanda. Curadoria criativa por Martha Medeiros — natural de Alagoas, cujo trabalho está enraizado na identidade cultural e na alma natural da região.</span><span data-lang="es">Arquitectura de Marcelo Franco (Makena Hotel, Carmel Taíba). Interiorismo de Milena Holanda. Curaduría creativa de Martha Medeiros — oriunda de Alagoas, cuyo trabajo está arraigado en la identidad cultural y el alma natural de la región.</span></p>
   </div>
 </section>
 
@@ -748,9 +904,13 @@ footer{background:#080806;padding:62px 48px 42px;
   <div class="si">
     <div class="plc-layout">
       <div class="plc-sticky rv">
-        <div class="plc-mark">
-          <span class="plc-mono">PLC</span>
-          <span class="plc-mono-sub">Private Luxury Collection</span>
+        <div class="plc-mark-box">
+          <div class="plc-mark-logo">
+            <img src="images/logo-mark.svg" alt="PLC mark">
+          </div>
+          <div class="plc-wordmark-logo">
+            <img src="images/logo-wordmark.svg" alt="Private Luxury Collection">
+          </div>
         </div>
         <div class="plc-id">
           <p class="plc-name">Keely Capel</p>
@@ -758,16 +918,16 @@ footer{background:#080806;padding:62px 48px 42px;
         </div>
       </div>
       <div>
-        <span class="sl rv">Why Private Luxury Collection</span>
-        <h2 class="plc-h rv">We hold the exclusive European mandate. We did the due diligence. <em>We stay involved.</em></h2>
+        <span class="sl rv"><span data-lang="en">Why Private Luxury Collection</span><span data-lang="pt">Porquê a Private Luxury Collection</span><span data-lang="es">Por qué Private Luxury Collection</span></span>
+        <h2 class="plc-h rv"><span data-lang="en">We hold the exclusive European mandate. We did the due diligence. <em>We stay involved.</em></span><span data-lang="pt">Detemos o mandato europeu exclusivo. Fizemos a due diligence. <em>Permanecemos envolvidos.</em></span><span data-lang="es">Tenemos el mandato europeo exclusivo. Hicimos la debida diligencia. <em>Seguimos implicados.</em></span></h2>
         <div class="plc-ps rv">
-          <p>Private Luxury Collection is a boutique luxury property advisory based in Vilamoura, Algarve, Portugal (AMI 19171). We operate exclusively in the HNW and UHNW segment. <strong>We do not distribute developer brochures.</strong> We identify opportunities, conduct due diligence, and present what we believe merits serious consideration to qualified buyers and their professional advisors.</p>
-          <p>We accepted the exclusive European mandate for ENTREÁGUAS MILAGRES because we assessed the developer's credentials, reviewed the legal ownership structure for EU nationals, verified the financial transaction mechanics under Brazilian Central Bank regulations, and scrutinised the market data. The Buyer Confidence Pack covers all of this — written in plain English, structured to withstand scrutiny from a wealth manager's compliance team.</p>
-          <p>We are your European point of contact from this first conversation through to your first rental income statement. You do not hand off to a developer and wonder what happens next.</p>
+          <p><span data-lang="en">Private Luxury Collection is a boutique luxury property advisory based in Vilamoura, Algarve, Portugal (AMI 19171). We operate exclusively in the HNW and UHNW segment. <strong>We do not distribute developer brochures.</strong> We identify opportunities, conduct due diligence, and present what we believe merits serious consideration.</span><span data-lang="pt">A Private Luxury Collection é uma consultora boutique de propriedade de luxo sediada em Vilamoura, Algarve, Portugal (AMI 19171). Operamos exclusivamente no segmento de alto e ultra-alto património. <strong>Não distribuímos brochuras de promotores.</strong> Identificamos oportunidades, realizamos due diligence e apresentamos o que acreditamos merecer consideração séria.</span><span data-lang="es">Private Luxury Collection es una boutique asesora de propiedades de lujo con sede en Vilamoura, Algarve, Portugal (AMI 19171). Operamos exclusivamente en el segmento de alto y ultra-alto patrimonio. <strong>No distribuimos folletos de promotores.</strong> Identificamos oportunidades, realizamos la debida diligencia y presentamos lo que creemos que merece una consideración seria.</span></p>
+          <p><span data-lang="en">We accepted the exclusive European mandate for ENTREÁGUAS MILAGRES because we assessed the developer's credentials, reviewed the legal ownership structure for EU nationals, verified the financial transaction mechanics, and scrutinised the market data. The Buyer Confidence Pack covers all of this — written in plain English, structured to withstand scrutiny from a wealth manager's compliance team.</span><span data-lang="pt">Aceitámos o mandato europeu exclusivo para o ENTREÁGUAS MILAGRES porque avaliámos as credenciais do promotor, revisámos a estrutura jurídica de propriedade para cidadãos europeus, verificámos a mecânica das transações financeiras e analisámos os dados de mercado. O Guia do Comprador cobre tudo isto — escrito em linguagem simples, estruturado para resistir ao escrutínio de uma equipa de compliance de um gestor de patrimônio.</span><span data-lang="es">Aceptamos el mandato europeo exclusivo para ENTREÁGUAS MILAGRES porque evaluamos las credenciales del promotor, revisamos la estructura legal de propiedad para ciudadanos europeos, verificamos la mecánica de las transacciones financieras y examinamos los datos de mercado. La Guía del Comprador cubre todo esto — escrita en lenguaje sencillo, estructurada para resistir el escrutinio de un equipo de cumplimiento de un gestor patrimonial.</span></p>
+          <p><span data-lang="en">We are your European point of contact from this first conversation through to your first rental income statement. You do not hand off to a developer and wonder what happens next.</span><span data-lang="pt">Somos o seu ponto de contacto europeu desde esta primeira conversa até ao seu primeiro extracto de rendimento de arrendamento. Não entrega a um promotor e fica a perguntar o que acontece a seguir.</span><span data-lang="es">Somos su punto de contacto europeo desde esta primera conversación hasta su primer estado de ingresos por alquiler. No se entrega a un promotor y se pregunta qué pasará después.</span></p>
         </div>
         <div class="plc-q rv">
           <div class="plc-q-bar"></div>
-          <p>"From your first conversation with us to the day you receive your first rental income statement, PLC is your European point of contact. If you have a problem, a question, or a concern at any stage — before or after purchase — you call us. That is the proposition."</p>
+          <p><span data-lang="en">"From your first conversation with us to the day you receive your first rental income statement, PLC is your European point of contact. If you have a problem, a question, or a concern at any stage — you call us. That is the proposition."</span><span data-lang="pt">"Desde a sua primeira conversa connosco até ao dia em que recebe o seu primeiro extrato de rendimento de arrendamento, a PLC é o seu ponto de contacto europeu. Se tiver um problema, uma questão ou uma preocupação em qualquer fase — contacte-nos. Essa é a proposta."</span><span data-lang="es">"Desde su primera conversación con nosotros hasta el día en que recibe su primer estado de ingresos por alquiler, PLC es su punto de contacto europeo. Si tiene un problema, una pregunta o una preocupación en cualquier momento — llámenos. Esa es la propuesta."</span></p>
         </div>
       </div>
     </div>
@@ -777,62 +937,105 @@ footer{background:#080806;padding:62px 48px 42px;
 <!-- S9 FORM -->
 <section id="form-section">
   <div class="form-wrap">
-    <h2 class="form-h rv">Request the Buyer<br>Confidence Pack.</h2>
-    <p class="form-sub rv">A twelve-section advisory document covering the legal ownership structure for EU nationals, financial transaction mechanics, the complete ENINOVA rental return model, buying costs, and tax considerations. Prepared by Private Luxury Collection. Available to qualified buyers and their professional advisors.</p>
+    <h2 class="form-h rv">
+      <span data-lang="en">Request the Buyer<br>Confidence Pack.</span>
+      <span data-lang="pt">Solicitar o Guia<br>do Comprador.</span>
+      <span data-lang="es">Solicitar la Guía<br>del Comprador.</span>
+    </h2>
+    <p class="form-sub rv">
+      <span data-lang="en">A twelve-section advisory document covering the legal ownership structure for EU nationals, financial transaction mechanics, the complete ENINOVA rental return model, buying costs, and tax considerations. Prepared by Private Luxury Collection.</span>
+      <span data-lang="pt">Um documento consultivo de doze secções que cobre a estrutura jurídica de propriedade para cidadãos europeus, a mecânica das transações financeiras, o modelo de retorno de arrendamento ENINOVA completo, custos de aquisição e considerações fiscais. Preparado pela Private Luxury Collection.</span>
+      <span data-lang="es">Un documento consultivo de doce secciones que cubre la estructura legal de propiedad para ciudadanos europeos, la mecánica de las transacciones financieras, el modelo completo de rentabilidad de alquiler ENINOVA, costes de adquisición y consideraciones fiscales. Preparado por Private Luxury Collection.</span>
+    </p>
     <form class="ef rv" id="ef" novalidate>
       <div class="fr">
-        <div class="ff"><label for="fn">First name *</label><input type="text" id="fn" name="first_name" required placeholder="First name"></div>
-        <div class="ff"><label for="ln">Last name *</label><input type="text" id="ln" name="last_name" required placeholder="Last name"></div>
+        <div class="ff">
+          <label for="fn"><span data-lang="en">First name *</span><span data-lang="pt">Primeiro nome *</span><span data-lang="es">Nombre *</span></label>
+          <input type="text" id="fn" name="first_name" required placeholder="...">
+        </div>
+        <div class="ff">
+          <label for="ln"><span data-lang="en">Last name *</span><span data-lang="pt">Apelido *</span><span data-lang="es">Apellido *</span></label>
+          <input type="text" id="ln" name="last_name" required placeholder="...">
+        </div>
       </div>
       <div class="fr">
-        <div class="ff"><label for="em">Email address *</label><input type="email" id="em" name="email" required placeholder="your@email.com"></div>
-        <div class="ff"><label for="ph">Phone (inc. country code) *</label><input type="tel" id="ph" name="phone" required placeholder="+351 ..."></div>
+        <div class="ff">
+          <label for="em"><span data-lang="en">Email address *</span><span data-lang="pt">Endereço de e-mail *</span><span data-lang="es">Correo electrónico *</span></label>
+          <input type="email" id="em" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="ff">
+          <label for="ph"><span data-lang="en">Phone (inc. country code) *</span><span data-lang="pt">Telefone (com indicativo) *</span><span data-lang="es">Teléfono (con prefijo) *</span></label>
+          <input type="tel" id="ph" name="phone" required placeholder="+351 ...">
+        </div>
       </div>
       <div class="frf ff">
-        <label for="ro">I am a *</label>
+        <label for="ro"><span data-lang="en">I am a *</span><span data-lang="pt">Sou *</span><span data-lang="es">Soy *</span></label>
         <select id="ro" name="role" required>
-          <option value="" disabled selected>Select your role</option>
-          <option>Private buyer</option>
-          <option>Wealth manager or IFA</option>
-          <option>Investment migration lawyer</option>
-          <option>Private bank or family office</option>
-          <option>Tax advisor or accountant</option>
-          <option>Relocation or concierge professional</option>
-          <option>Other professional advisor</option>
+          <option value="" disabled selected>
+            <span data-lang="en">Select your role</span>
+            <span data-lang="pt">Selecione a sua função</span>
+            <span data-lang="es">Seleccione su perfil</span>
+          </option>
+          <option value="private_buyer"><span data-lang="en">Private buyer</span><span data-lang="pt">Comprador privado</span><span data-lang="es">Comprador privado</span></option>
+          <option value="wealth_manager"><span data-lang="en">Wealth manager or IFA</span><span data-lang="pt">Gestor de patrimônio ou consultor financeiro</span><span data-lang="es">Gestor patrimonial o asesor financiero</span></option>
+          <option value="migration_lawyer"><span data-lang="en">Investment migration lawyer</span><span data-lang="pt">Advogado de migração por investimento</span><span data-lang="es">Abogado de migración por inversión</span></option>
+          <option value="private_bank"><span data-lang="en">Private bank or family office</span><span data-lang="pt">Banco privado ou family office</span><span data-lang="es">Banca privada o family office</span></option>
+          <option value="tax_advisor"><span data-lang="en">Tax advisor or accountant</span><span data-lang="pt">Consultor fiscal ou contabilista</span><span data-lang="es">Asesor fiscal o contable</span></option>
+          <option value="relocation"><span data-lang="en">Relocation or concierge professional</span><span data-lang="pt">Profissional de relocation ou concierge</span><span data-lang="es">Profesional de relocation o conserjería</span></option>
+          <option value="other"><span data-lang="en">Other professional advisor</span><span data-lang="pt">Outro consultor profissional</span><span data-lang="es">Otro asesor profesional</span></option>
         </select>
       </div>
       <div class="frf ff">
-        <label for="co">Country of residence *</label>
+        <label for="co"><span data-lang="en">Country of residence *</span><span data-lang="pt">País de residência *</span><span data-lang="es">País de residencia *</span></label>
         <select id="co" name="country" required>
-          <option value="" disabled selected>Select country</option>
-          <option>Portugal</option><option>Spain</option>
-          <option>United Kingdom</option><option>Germany</option>
-          <option>Switzerland</option><option>France</option>
+          <option value="" disabled selected>...</option>
+          <option>Portugal</option><option>Spain / España</option>
+          <option>United Kingdom</option><option>Germany / Deutschland</option>
+          <option>Switzerland / Schweiz</option><option>France</option>
           <option>Netherlands</option><option>Sweden</option>
           <option>Norway</option><option>Denmark</option>
           <option>Belgium</option><option>Austria</option>
-          <option>Italy</option><option>Luxembourg</option>
-          <option>Ireland</option><option>Other</option>
+          <option>Italy / Italia</option><option>Luxembourg</option>
+          <option>Ireland</option><option>Brazil / Brasil</option>
+          <option>Other / Outro / Otro</option>
         </select>
       </div>
       <div class="frf ff">
-        <label for="ms">Message (optional)</label>
-        <textarea id="ms" name="message" placeholder="Any specific questions or context you'd like to share…"></textarea>
+        <label for="ms"><span data-lang="en">Message (optional)</span><span data-lang="pt">Mensagem (opcional)</span><span data-lang="es">Mensaje (opcional)</span></label>
+        <textarea id="ms" name="message" placeholder="..."></textarea>
       </div>
       <div class="gdpr-row">
         <input type="checkbox" id="gd" name="gdpr" required>
-        <label class="gdpr-lbl" for="gd">I consent to Private Luxury Collection storing and using my contact details to respond to this enquiry and send relevant property information. I can unsubscribe at any time. Handled in accordance with GDPR and the PLC privacy policy.</label>
+        <label class="gdpr-lbl" for="gd">
+          <span data-lang="en">I consent to Private Luxury Collection storing and using my contact details to respond to this enquiry and send relevant property information. I can unsubscribe at any time. Handled in accordance with GDPR.</span>
+          <span data-lang="pt">Consinto que a Private Luxury Collection armazene e utilize os meus dados de contacto para responder a este pedido e enviar informações relevantes sobre propriedades. Posso cancelar a subscrição a qualquer momento. Tratado de acordo com o RGPD.</span>
+          <span data-lang="es">Consiento que Private Luxury Collection almacene y utilice mis datos de contacto para responder a esta consulta y enviar información relevante sobre propiedades. Puedo darme de baja en cualquier momento. Tratado de acuerdo con el RGPD.</span>
+        </label>
       </div>
-      <button type="submit" class="btn btn-full">Download Buyer Confidence Pack <span class="btn-arr">→</span></button>
-      <p class="f-re">No sales calls without your permission &nbsp;·&nbsp; Private Luxury Collection AMI 19171, Portugal</p>
+      <button type="submit" class="btn btn-full">
+        <span data-lang="en">Download Buyer Confidence Pack</span>
+        <span data-lang="pt">Transferir Guia do Comprador</span>
+        <span data-lang="es">Descargar Guía del Comprador</span>
+        <span class="btn-arr">→</span>
+      </button>
+      <p class="f-re">
+        <span data-lang="en">No sales calls without your permission &nbsp;·&nbsp; Private Luxury Collection AMI 19171, Portugal</span>
+        <span data-lang="pt">Sem chamadas comerciais sem a sua permissão &nbsp;·&nbsp; Private Luxury Collection AMI 19171, Portugal</span>
+        <span data-lang="es">Sin llamadas comerciales sin su permiso &nbsp;·&nbsp; Private Luxury Collection AMI 19171, Portugal</span>
+      </p>
     </form>
     <div class="form-ok" id="form-ok">
       <div class="ok-ring">✓</div>
-      <h3 class="ok-h">Your Buyer Confidence Pack<br>is downloading now.</h3>
+      <h3 class="ok-h">
+        <span data-lang="en">Your Buyer Confidence Pack<br>is downloading now.</span>
+        <span data-lang="pt">O seu Guia do Comprador<br>está a ser transferido agora.</span>
+        <span data-lang="es">Su Guía del Comprador<br>se está descargando ahora.</span>
+      </h3>
       <p class="ok-b">
-        A member of the PLC team will be in touch within one business day.<br>
-        For immediate queries: <a href="mailto:entreaguas@privateluxurycollection.com">entreaguas@privateluxurycollection.com</a><br><br>
-        Private Luxury Collection · AMI 19171 · Vilamoura, Algarve, Portugal
+        <span data-lang="en">A member of the PLC team will be in touch within one business day.<br>For immediate queries: <a href="mailto:entreaguas@privateluxurycollection.com">entreaguas@privateluxurycollection.com</a></span>
+        <span data-lang="pt">Um membro da equipa PLC entrará em contacto no prazo de um dia útil.<br>Para questões imediatas: <a href="mailto:entreaguas@privateluxurycollection.com">entreaguas@privateluxurycollection.com</a></span>
+        <span data-lang="es">Un miembro del equipo PLC se pondrá en contacto en el plazo de un día hábil.<br>Para consultas inmediatas: <a href="mailto:entreaguas@privateluxurycollection.com">entreaguas@privateluxurycollection.com</a></span>
+        <br><br>Private Luxury Collection · AMI 19171 · Vilamoura, Algarve, Portugal
       </p>
     </div>
   </div>
@@ -840,9 +1043,17 @@ footer{background:#080806;padding:62px 48px 42px;
 
 <!-- S10 FOOTER -->
 <footer>
+  <div class="footer-logo-row">
+    <div class="footer-logo-mark">
+      <img src="images/logo-mark.svg" alt="PLC mark">
+    </div>
+    <div class="footer-logo-wordmark">
+      <img src="images/logo-wordmark.svg" alt="Private Luxury Collection">
+    </div>
+  </div>
   <div class="fg">
     <div class="footer-col">
-      <span class="fc-t">Private Luxury Collection</span>
+      <span class="fc-t"><span data-lang="en">Private Luxury Collection</span><span data-lang="pt">Private Luxury Collection</span><span data-lang="es">Private Luxury Collection</span></span>
       <address>
         AMI 19171 — Centelha D'Exito Unipessoal Lda<br>
         Vilamoura, Algarve, Portugal<br><br>
@@ -851,15 +1062,19 @@ footer{background:#080806;padding:62px 48px 42px;
       </address>
     </div>
     <div class="footer-col">
-      <span class="fc-t">Navigation</span>
-      <a href="https://https://www.privateluxurycollection.com/detail/portugal-property-real-estate-luxury-property-uhnw-clients-strategic-advisory-private-real-estate-advisory/17905" target="_blank" rel="noopener">About Private Luxury Collection</a>
-      <a href="https://smartlink.casafaricrm.com/home/detail?v=696e427a6f6535582b4c776655314e51414c3057324d637848786c566a34364e656c7135396c51357961424579314562666330623330624d334c554e486f3270" target="_blank" rel="noopener">Properties</a>
-      <a href="https://www.privateluxurycollection.com/intelligence-brief" target="_blank" rel="noopener">Intelligence Brief</a>
-      <a href="mailto:entreaguas@privateluxurycollection.com">Contact</a>
+      <span class="fc-t"><span data-lang="en">Navigation</span><span data-lang="pt">Navegação</span><span data-lang="es">Navegación</span></span>
+      <a href="https://https://www.privateluxurycollection.com/detail/portugal-property-real-estate-luxury-property-uhnw-clients-strategic-advisory-private-real-estate-advisory/17905">Sobre a PLC</span><span data-lang="es">Sobre PLC</span></a>
+      <a href=""https://smartlink.casafaricrm.com/home/detail?v=696e427a6f6535582b4c776655314e51414c3057324d637848786c566a34364e656c7135396c51357961424579314562666330623330624d334c554e486f3270" rel="noopener"><span data-lang="en">Portugal Properties</span><span data-lang="pt">Propriedades em Portugal</span><span data-lang="es">Propiedades en Portugal</span></a>
+      <a href="https://www.privateluxurycollection.com" target="_blank" rel="noopener"><span data-lang="en">Intelligence Brief</span><span data-lang="pt">Intelligence Brief</span><span data-lang="es">Intelligence Brief</span></a>
+      <a href="mailto:entreaguas@privateluxurycollection.com"><span data-lang="en">Contact</span><span data-lang="pt">Contacto</span><span data-lang="es">Contacto</span></a>
     </div>
     <div class="footer-col">
-      <span class="fc-t">Legal</span>
-      <p>© 2026 Private Luxury Collection. All rights reserved. AMI 19171. This page is for informational purposes only and does not constitute financial, legal, or investment advice. EUR figures converted at R$5.92 = €1 (May 2026) — illustrative only. Actual EUR value depends on prevailing EUR/BRL exchange rate. Investment return figures sourced from Referência Capital (CNN Money, May 2025) and ENINOVA Modelo Lucxo (2025). Past performance is not a guarantee of future results. Buyers should seek independent professional advice before making any investment decision. ENTREÁGUAS MILAGRES developed by ADAMO SPE 1 LTDA (CNPJ 48.684.642/0001-83). Incorporation R-1, no. 5,648, Porto de Pedras/AL.</p>
+      <span class="fc-t"><span data-lang="en">Legal</span><span data-lang="pt">Legal</span><span data-lang="es">Legal</span></span>
+      <p>
+        <span data-lang="en">© 2026 Private Luxury Collection. All rights reserved. AMI 19171. This page is for informational purposes only and does not constitute financial, legal, or investment advice. EUR figures converted at R$5.92 = €1 (May 2026) — illustrative only. Investment return figures sourced from Referência Capital (CNN Money, May 2025) and ENINOVA Modelo Lucxo (2025). Buyers should seek independent professional advice. ENTREÁGUAS MILAGRES developed by ADAMO SPE 1 LTDA (CNPJ 48.684.642/0001-83). Incorporation R-1, no. 5,648, Porto de Pedras/AL.</span>
+        <span data-lang="pt">© 2026 Private Luxury Collection. Todos os direitos reservados. AMI 19171. Esta página é apenas para fins informativos e não constitui aconselhamento financeiro, jurídico ou de investimento. Valores em EUR convertidos a R$5,92 = €1 (maio de 2026) — meramente ilustrativos. Os compradores devem procurar aconselhamento profissional independente. ENTREÁGUAS MILAGRES desenvolvido pela ADAMO SPE 1 LTDA (CNPJ 48.684.642/0001-83). Incorporação R-1, n.º 5.648, Porto de Pedras/AL.</span>
+        <span data-lang="es">© 2026 Private Luxury Collection. Todos los derechos reservados. AMI 19171. Esta página es solo para fines informativos y no constituye asesoramiento financiero, legal o de inversión. Cifras en EUR convertidas a R$5,92 = €1 (mayo 2026) — solo ilustrativas. Los compradores deben buscar asesoramiento profesional independiente. ENTREÁGUAS MILAGRES desarrollado por ADAMO SPE 1 LTDA (CNPJ 48.684.642/0001-83). Incorporación R-1, n.º 5.648, Porto de Pedras/AL.</span>
+      </p>
     </div>
   </div>
   <div class="f-legal">
@@ -868,25 +1083,44 @@ footer{background:#080806;padding:62px 48px 42px;
 </footer>
 
 <script>
-// Nav scroll
+// ── Language switcher
+function setLang(lang){
+  document.body.className='lang-'+lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.setLang===lang);
+  });
+  localStorage.setItem('plc-lang',lang);
+}
+document.querySelectorAll('.lang-btn').forEach(b=>{
+  b.addEventListener('click',()=>setLang(b.dataset.setLang));
+});
+// Restore saved language or detect browser language
+const saved=localStorage.getItem('plc-lang');
+const browser=navigator.language||'';
+if(saved){setLang(saved);}
+else if(browser.startsWith('pt')){setLang('pt');}
+else if(browser.startsWith('es')){setLang('es');}
+else{setLang('en');}
+
+// ── Nav scroll
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60),{passive:true});
 
-// Reveal on scroll
+// ── Scroll reveal
 const rvEls=document.querySelectorAll('.rv');
 const rvObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target);}});
 },{threshold:.07,rootMargin:'0px 0px -28px 0px'});
 rvEls.forEach(el=>rvObs.observe(el));
 
-// Gallery
+// ── Gallery
 const gal=document.getElementById('gallery');
 const dots=document.querySelectorAll('.gd');
 const itemW=()=>gal.children[0].offsetWidth+10;
 dots.forEach(d=>{
   d.addEventListener('click',()=>{
     const i=parseInt(d.dataset.i);
-    gal.scrollTo({left:i*(itemW()),behavior:'smooth'});
+    gal.scrollTo({left:i*itemW(),behavior:'smooth'});
     dots.forEach((x,j)=>x.classList.toggle('on',j===i));
   });
 });
@@ -895,17 +1129,22 @@ gal.addEventListener('scroll',()=>{
   dots.forEach((d,j)=>d.classList.toggle('on',j===i));
 },{passive:true});
 
-// Form
+// ── Form
 document.getElementById('ef').addEventListener('submit',function(e){
   e.preventDefault();
   let ok=true;
   this.querySelectorAll('[required]').forEach(f=>{
     if(!f.value||(f.type==='checkbox'&&!f.checked))ok=false;
   });
-  if(!ok){alert('Please complete all required fields.');return;}
+  if(!ok){
+    const msg={en:'Please complete all required fields.',pt:'Por favor preencha todos os campos obrigatórios.',es:'Por favor complete todos los campos obligatorios.'};
+    const lang=localStorage.getItem('plc-lang')||'en';
+    alert(msg[lang]||msg.en);
+    return;
+  }
   this.style.display='none';
   document.getElementById('form-ok').classList.add('show');
-   Uncomment and update path when BCP PDF is ready:
+   Uncomment when BCP PDF is ready:
    const a=document.createElement('a');
    a.href='PLC_EntreAguas_Buyer_Confidence_Pack.pdf';
    a.download='PLC_EntreAguas_Buyer_Confidence_Pack.pdf';
