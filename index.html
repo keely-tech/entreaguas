@@ -353,9 +353,20 @@ nav.sc{background:rgba(12,12,10,.96);backdrop-filter:blur(14px);
 
 /* ── PLC ROLE ── */
 #plc-role{background:var(--off-white);padding:110px 0}
-.plc-layout{display:grid;grid-template-columns:320px 1fr;
-  gap:84px;align-items:start}
-.plc-sticky{position:sticky;top:46px}
+.plc-layout {
+  display: grid;
+  /* 320px for the logo box, 1fr for the text, with a gap between them */
+  grid-template-columns: 320px 1fr; 
+  gap: 84px;
+  align-items: start;
+}
+
+.plc-sticky {
+  position: sticky;
+  top: 46px;
+  /* Ensures the logo box doesn't shrink or get pushed out of its column */
+  width: 100%; 
+}
 .plc-mark-box{aspect-ratio:4/3;background:var(--black);display:flex;
   flex-direction:column;align-items:center;justify-content:center;
   gap:16px;margin-bottom:22px;padding:28px}
