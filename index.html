@@ -920,18 +920,26 @@ footer{background:#080806;padding:62px 48px 42px;
       <span class="t-pt">Um documento consultivo de doze secções que cobre a estrutura jurídica para cidadãos europeus, a mecânica das transações financeiras, o modelo de retorno de arrendamento ENINOVA completo, custos de aquisição e considerações fiscais. Preparado pela Private Luxury Collection.</span>
       <span class="t-es">Un documento consultivo de doce secciones que cubre la estructura legal para ciudadanos europeos, la mecánica financiera, el modelo de rentabilidad ENINOVA, costes y consideraciones fiscales. Preparado por Private Luxury Collection.</span>
     </p>
-    <form class="ef rv" id="ef" novalidate>
+    <form class="ef rv" id="ef" action="https://privateluxurycollection.us20.list-manage.com/subscribe/post?u=4051acad84cfd980d437aa7bc&id=e3334944b5&f_id=00065eeef0" method="POST" novalidate>
+      <!-- Mailchimp required hidden fields -->
+<input type="hidden" name="u" value="4051acad84cfd980d437aa7bc">
+<input type="hidden" name="id" value="e3334944b5">
+<input type="hidden" name="f_id" value="00065eeef0">
+<!-- Mailchimp honeypot anti-spam (must be empty) -->
+<div style="position:absolute;left:-5000px" aria-hidden="true">
+  <input type="text" name="b_4051acad84cfd980d437aa7bc_e3334944b5" tabindex="-1" value="">
+</div>
       <div class="fr">
-        <div class="ff"><label for="fn"><span class="t-en">First name *</span><span class="t-pt">Primeiro nome *</span><span class="t-es">Nombre *</span></label><input type="text" id="fn" name="first_name" required placeholder="..."></div>
-        <div class="ff"><label for="ln"><span class="t-en">Last name *</span><span class="t-pt">Apelido *</span><span class="t-es">Apellido *</span></label><input type="text" id="ln" name="last_name" required placeholder="..."></div>
+        <div class="ff"><label for="fn"><span class="t-en">First name *</span><span class="t-pt">Primeiro nome *</span><span class="t-es">Nombre *</span></label><input type="text" id="fn" name="FNAME" required placeholder="..."></div>
+        <div class="ff"><label for="ln"><span class="t-en">Last name *</span><span class="t-pt">Apelido *</span><span class="t-es">Apellido *</span></label><input type="text" id="ln" name="LNAME" required placeholder="..."></div>
       </div>
       <div class="fr">
-        <div class="ff"><label for="em"><span class="t-en">Email *</span><span class="t-pt">E-mail *</span><span class="t-es">Correo electrónico *</span></label><input type="email" id="em" name="email" required placeholder="your@email.com"></div>
-        <div class="ff"><label for="ph"><span class="t-en">Phone (inc. country code) *</span><span class="t-pt">Telefone (com indicativo) *</span><span class="t-es">Teléfono (con prefijo) *</span></label><input type="tel" id="ph" name="phone" required placeholder="+351 ..."></div>
+        <div class="ff"><label for="em"><span class="t-en">Email *</span><span class="t-pt">E-mail *</span><span class="t-es">Correo electrónico *</span></label><input type="email" id="em" name="EMAIL" required placeholder="your@email.com"></div>
+        <div class="ff"><label for="ph"><span class="t-en">Phone (inc. country code) *</span><span class="t-pt">Telefone (com indicativo) *</span><span class="t-es">Teléfono (con prefijo) *</span></label><input type="tel" id="ph" name="PHONE" required placeholder="+351 ..."></div>
       </div>
       <div class="frf ff">
         <label for="ro"><span class="t-en">I am a *</span><span class="t-pt">Sou *</span><span class="t-es">Soy *</span></label>
-        <select id="ro" name="role" required>
+        <select id="ro" name="MMERGE18" required>
           <option value="" disabled selected>—</option>
           <option value="private_buyer">Private buyer / Comprador privado</option>
           <option value="wealth_manager">Wealth manager or IFA / Gestor de patrimônio</option>
@@ -944,7 +952,7 @@ footer{background:#080806;padding:62px 48px 42px;
       </div>
       <div class="frf ff">
         <label for="co"><span class="t-en">Country of residence *</span><span class="t-pt">País de residência *</span><span class="t-es">País de residencia *</span></label>
-        <select id="co" name="country" required>
+        <select id="co" name="MMERGE19" required>
           <option value="" disabled selected>—</option>
           <option>Portugal</option><option>Spain / España</option>
           <option>United Kingdom</option><option>Germany / Deutschland</option>
@@ -957,7 +965,7 @@ footer{background:#080806;padding:62px 48px 42px;
       </div>
       <div class="frf ff">
         <label for="ms"><span class="t-en">Message (optional)</span><span class="t-pt">Mensagem (opcional)</span><span class="t-es">Mensaje (opcional)</span></label>
-        <textarea id="ms" name="message" placeholder="..."></textarea>
+        <textarea id="ms" name="MMERGE20" placeholder="..."></textarea>
       </div>
       <div class="gdpr-row">
         <input type="checkbox" id="gd" name="gdpr" required>
@@ -1080,6 +1088,32 @@ document.getElementById("ef").addEventListener("submit",function(e){
   this.querySelectorAll("[required]").forEach(function(f){
     if(!f.value||(f.type==="checkbox"&&!f.checked))ok=false;
   });
+  if(!ok){
+    var msgs={en:"Please complete all required fields.",pt:"Por favor preencha todos os campos obrigatórios.",es:"Por favor complete todos los campos obligatorios."};
+    var l=(localStorage.getItem("plc-lang")||"en");
+    alert(msgs[l]||msgs.en);
+    return;
+  }
+  var form=this;
+  var data=new FormData(form);
+  fetch(form.action,{method:"POST",body:data,mode:"no-cors"})
+    .then(function(){
+      form.style.display="none";
+      document.getElementById("form-ok").classList.add("show");
+      var a=document.createElement("a");
+      a.href="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
+      a.download="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
+      document.body.appendChild(a);a.click();document.body.removeChild(a);
+    })
+    .catch(function(){
+      form.style.display="none";
+      document.getElementById("form-ok").classList.add("show");
+      var a=document.createElement("a");
+      a.href="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
+      a.download="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
+      document.body.appendChild(a);a.click();document.body.removeChild(a);
+    });
+});
   if(!ok){
     var msgs={en:"Please complete all required fields.",pt:"Por favor preencha todos os campos obrigatórios.",es:"Por favor complete todos los campos obligatorios."};
     var l=(localStorage.getItem("plc-lang")||"en");
