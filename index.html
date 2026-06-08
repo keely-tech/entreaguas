@@ -1114,19 +1114,6 @@ document.getElementById("ef").addEventListener("submit",function(e){
       document.body.appendChild(a);a.click();document.body.removeChild(a);
     });
 });
-  if(!ok){
-    var msgs={en:"Please complete all required fields.",pt:"Por favor preencha todos os campos obrigatórios.",es:"Por favor complete todos los campos obligatorios."};
-    var l=(localStorage.getItem("plc-lang")||"en");
-    alert(msgs[l]||msgs.en);
-    return;
-  }
-  this.style.display="none";
-  document.getElementById("form-ok").classList.add("show");
-  var a=document.createElement("a");
-  a.href="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
-  a.download="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
-});
 </script>
 </body>
 </html>
