@@ -1096,6 +1096,9 @@ document.getElementById("ef").addEventListener("submit",function(e){
   }
   var form=this;
   var data=new FormData(form);
+  for (let pair of data.entries()) {
+    console.log(pair[0] + ': ' + pair[1]);
+}
   fetch(form.action,{method:"POST",body:data,mode:"no-cors"})
     .then(function(){
       form.style.display="none";
