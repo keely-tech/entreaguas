@@ -16,6 +16,13 @@
   document.documentElement.className='lang-'+l;
   document.documentElement.lang=l;
 })();
+</script><!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DCVW0VGLF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1102,8 +1109,9 @@ document.getElementById("ef").addEventListener("submit",function(e){
 }
   fetch(form.action,{method:"POST",body:data,mode:"no-cors"})
     .then(function(){
-      form.style.display="none";
-      document.getElementById("form-ok").classList.add("show");
+form.style.display="none";
+document.getElementById("form-ok").classList.add("show");
+gtag('event', 'generate_lead', {'event_category': 'EntreAguas', 'event_label': 'BCP Download'});
       var a=document.createElement("a");
       a.href="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
       a.download="PLC_EntreAguas_Buyer_Confidence_Pack.pdf";
