@@ -16,6 +16,32 @@
   document.documentElement.className='lang-'+l;
   document.documentElement.lang=l;
 })();
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DCVW0VGLF"></script>
+<script>
+  // PLC internal-traffic flag
+  (function () {
+    var flag = false;
+    try {
+      var q = location.search, r = document.referrer;
+      var shared = /privateluxurycollection\.com$/.test(location.hostname);
+      if (/[?&]internal=0\b/.test(q)) {
+        localStorage.removeItem('plc_internal');
+        if (shared) document.cookie = 'plc_internal=; path=/; max-age=0; domain=.privateluxurycollection.com';
+      } else if (/[?&]internal=1\b/.test(q) || /\/\/admin\.proppycrm\.com/.test(r)) {
+        localStorage.setItem('plc_internal', '1');
+        if (shared) document.cookie = 'plc_internal=1; path=/; max-age=31536000; SameSite=Lax; domain=.privateluxurycollection.com';
+      }
+      flag = localStorage.getItem('plc_internal') === '1' || /(^|;\s*)plc_internal=1/.test(document.cookie);
+    } catch (e) {}
+    window.plcTrafficType = flag ? 'internal' : undefined;
+  })();
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7DCVW0VGLF', window.plcTrafficType ? { traffic_type: 'internal' } : {});
+</script>
 </script><!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DCVW0VGLF"></script>
 <script>
