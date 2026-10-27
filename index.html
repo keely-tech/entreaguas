@@ -16,8 +16,9 @@
   document.documentElement.className='lang-'+l;
   document.documentElement.lang=l;
 })();
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DCVW0VGLF"></script>
+</script>
+<!-- Google tag (gtag.js) -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var plcConsent=null;try{plcConsent=localStorage.getItem('plc_consent');}catch(e){}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});if(plcConsent==='granted'){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-7DCVW0VGLF"></script>
 <script>
   // PLC internal-traffic flag
   (function () {
@@ -41,14 +42,6 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-7DCVW0VGLF', window.plcTrafficType ? { traffic_type: 'internal' } : {});
-</script>
-</script><!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DCVW0VGLF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-gtag('config', 'G-7DCVW0VGLF');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1153,5 +1146,5 @@ gtag('event', 'generate_lead', {'event_category': 'EntreAguas', 'event_label': '
     });
 });
 </script>
-</body>
+<script src="consent.js"></script></body>
 </html>
